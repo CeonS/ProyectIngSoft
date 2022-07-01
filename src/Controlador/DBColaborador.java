@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class DBColaborador {
@@ -38,5 +39,27 @@ public class DBColaborador {
         }
     }
     
+     public ArrayList<Parametros> getTipoColaborador(Connection con) {
+
+        Statement stmt;
+        ResultSet rs;
+        ArrayList<Parametros> listaColaboradoresTipo = new ArrayList<>();
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery("SELECT * FROM nivelparametro where tipoParameto = 'Tipo Colaborador'");
+
+            while (rs.next()) {
+                Parametros servicio = new Parametros();
+                servicio.setIdParametro(rs.getInt("IdParametro"));
+                servicio.setDescripcionParametro(rs.getString("descripcionParametro"));
+                servicio.setTipoParametro(rs.getString("tipoParameto"));
+                servicio.setEstadoParametro(rs.getString("estadoParametro"));
+                listaColaboradoresTipo.add(servicio);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Problema: " + e);
+        }
+        return listaColaboradoresTipo;
+    }
    
 }

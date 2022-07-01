@@ -1,18 +1,48 @@
 package Vista;
 
+import Controlador.DBColaborador;
+import Controlador.DBPersona;
+import Controlador.DBServicio;
+import Controlador.Parametros;
 import Modelo.probarConexionDB;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 public class ListadoColaboradores extends javax.swing.JFrame {
 
     public ListadoColaboradores() {
         initComponents();
+        this.setLocationRelativeTo(null);
         mostrarTablaColaboradores();
+        rellenarComboBoxs();
     }
     DefaultTableModel modelo2 = new DefaultTableModel();
     probarConexionDB pcDB = new probarConexionDB();
+
+    public void rellenarComboBoxs() {
+
+        DBPersona p = new DBPersona();
+        ArrayList<Parametros> listaColaboradoresGenero= p.getGeneros(pcDB.connection2());
+
+        cbxGenero.removeAllItems();
+
+        for (int i = 0; i < listaColaboradoresGenero.size(); i++) {
+            cbxGenero.addItem(listaColaboradoresGenero.get(i).getDescripcionParametro());
+        }
+        
+        //CbxTipoCOLABORADOR
+        DBColaborador c = new DBColaborador();
+        ArrayList<Parametros> listaColaboradoresTipo= c.getTipoColaborador(pcDB.connection2());
+
+        cbxTipoColaborador.removeAllItems();
+
+        for (int i = 0; i < listaColaboradoresTipo.size(); i++) {
+            cbxTipoColaborador.addItem(listaColaboradoresTipo.get(i).getDescripcionParametro());
+        }
+
+    }
 
     void mostrarTablaColaboradores() {
 
@@ -61,7 +91,7 @@ public class ListadoColaboradores extends javax.swing.JFrame {
             tablaColaboradores.setModel(modelo2);
         } catch (Exception e) {
         }
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -204,11 +234,11 @@ public class ListadoColaboradores extends javax.swing.JFrame {
                                     .addComponent(jLabel10))
                                 .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(cbxGenero, 0, 101, Short.MAX_VALUE)
                                         .addComponent(cbxTipoColaborador, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1689, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -247,12 +277,13 @@ public class ListadoColaboradores extends javax.swing.JFrame {
                             .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
-                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10)
+                        .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -264,12 +295,12 @@ public class ListadoColaboradores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-    
-        
+
+
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void tablaColaboradoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaColaboradoresMouseClicked
-     int filaSeleccionada = tablaColaboradores.rowAtPoint(evt.getPoint());
+        int filaSeleccionada = tablaColaboradores.rowAtPoint(evt.getPoint());
         txtNombres.setText(tablaColaboradores.getValueAt(filaSeleccionada, 2).toString());
         txtApellidos.setText(tablaColaboradores.getValueAt(filaSeleccionada, 3).toString());
         txtZonaLaboral.setText(tablaColaboradores.getValueAt(filaSeleccionada, 4).toString());
@@ -283,14 +314,14 @@ public class ListadoColaboradores extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaColaboradoresMouseClicked
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-          FormEmpleado fe = new FormEmpleado();
+        FormEmpleado fe = new FormEmpleado();
         FormColaborador fc = new FormColaborador();
-      
+
         if (fc.colaboradorForm == true) {
             fc.setVisible(true);
             this.dispose();
         } else {
-            
+
             fe.setVisible(true);
             this.dispose();
         }

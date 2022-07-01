@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class DBPersona {
@@ -150,5 +151,28 @@ public class DBPersona {
             JOptionPane.showMessageDialog(null, "Error de Registro3 " + e.getMessage());
         }
         return correo;
+    }
+     
+      public ArrayList<Parametros> getGeneros(Connection con) {
+
+        Statement stmt;
+        ResultSet rs;
+        ArrayList<Parametros> listaColaboradoresGenero = new ArrayList<>();
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery("SELECT * FROM nivelparametro where tipoParameto = 'Genero'");
+
+            while (rs.next()) {
+                Parametros servicio = new Parametros();
+                servicio.setIdParametro(rs.getInt("IdParametro"));
+                servicio.setDescripcionParametro(rs.getString("descripcionParametro"));
+                servicio.setTipoParametro(rs.getString("tipoParameto"));
+                servicio.setEstadoParametro(rs.getString("estadoParametro"));
+                listaColaboradoresGenero.add(servicio);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Problema: " + e);
+        }
+        return listaColaboradoresGenero;
     }
 }
