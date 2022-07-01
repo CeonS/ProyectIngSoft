@@ -240,27 +240,26 @@ public class ListadoServicios extends javax.swing.JFrame {
             for (int i = fila - 1; i >= 0; i--) {
                 modelo.removeRow(i);
             }
-            String sql = "select s.*, np.descripcionParametro from servicio s\n"
-                    + " inner join nivelparametro np on s.idParametroTipoServicio = np.idParametro"
-                    + " where np.tipoParameto = 'Tipo Servicio'";
+             String sql = "select s.*, np.descripcionParametro from servicio s\n"
+                + " inner join nivelparametro np on s.idParametroTipoServicio = np.idParametro"
+                + " where np.tipoParameto = 'Tipo Servicio'";
 
-            String datos[] = new String[4];
-            Statement st;
-            try {
-                st = pcDB.connection2().createStatement();
-                ResultSet rs = st.executeQuery(sql);
-                while (rs.next()) {
-                    datos[0] = rs.getString(6);
-                    datos[1] = rs.getString(3);
-                    datos[2] = rs.getString(2);
-                    datos[3] = rs.getString(5);
-                    modelo.addRow(datos);
-                }
-                tablaServicios.setModel(modelo);
-                pcDB.connection2().close();
-                st.close();
-            } catch (Exception e) {
+        String datos[] = new String[5];
+        Statement st;
+        try {
+            st = pcDB.connection2().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(6);
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(2);
+                datos[4] = rs.getString(5);
+                modelo.addRow(datos);
             }
+            tablaServicios.setModel(modelo);
+        } catch (Exception e) {
+        }
         }
     }//GEN-LAST:event_btnactualizarActionPerformed
 
@@ -281,11 +280,11 @@ public class ListadoServicios extends javax.swing.JFrame {
     private void tablaServiciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaServiciosMouseClicked
 
         int filaSeleccionada = tablaServicios.rowAtPoint(evt.getPoint());
-        txtTipoServicio.setText(tablaServicios.getValueAt(filaSeleccionada, 0).toString());
-        tipoServicio = tablaServicios.getValueAt(filaSeleccionada, 0).toString();
-        txtADescripcion.setText(tablaServicios.getValueAt(filaSeleccionada, 1).toString());
-        txtMonto.setText(tablaServicios.getValueAt(filaSeleccionada, 2).toString());
-        txtEstado.setText(tablaServicios.getValueAt(filaSeleccionada, 3).toString());
+        txtTipoServicio.setText(tablaServicios.getValueAt(filaSeleccionada, 1).toString());
+        tipoServicio = tablaServicios.getValueAt(filaSeleccionada, 1).toString();
+        txtADescripcion.setText(tablaServicios.getValueAt(filaSeleccionada, 2).toString());
+        txtMonto.setText(tablaServicios.getValueAt(filaSeleccionada, 3).toString());
+        txtEstado.setText(tablaServicios.getValueAt(filaSeleccionada, 4).toString());
     }//GEN-LAST:event_tablaServiciosMouseClicked
 
     /**
