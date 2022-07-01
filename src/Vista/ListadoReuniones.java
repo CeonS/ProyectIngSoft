@@ -23,10 +23,58 @@ public class ListadoReuniones extends javax.swing.JFrame {
     public static String dniCliente, dniEmpleado, descripcionServicio, numeroContacto;
     public static java.sql.Date fecha;
 
-
     void mostrarTabla() {
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre Empleado");
+        modelo.addColumn("DNI Empleado");
+        modelo.addColumn("Nombre Cliente");
+        modelo.addColumn("DNI Cliente");
+        modelo.addColumn("Tipo Servicio");
+        modelo.addColumn("Fecha Reunion");
+        modelo.addColumn("Ubicación");
+        modelo.addColumn("Número Contacto");
+        modelo.addColumn("Estado");
 
-    }
+
+       tablaReuniones.setModel(modelo);
+        
+        String sql = "select r.idReunion,np.descripcionParametro, pe.nombres as 'nombre empleado', pe.dni,\n"
+                    + "p.nombres as 'nombre cliente',p.dni, r.fechaReunion, r.ubicacion, r.numeroContacto, r.estado_reunion from reunion r\n"
+                    + "inner join servicio s on r.IdServicioReunion = s.IdServicio\n"
+                    + "inner join nivelparametro np on s.idParametroTipoServicio = np.idParametro\n"
+                    + "inner join usuario u on r.id_Usuario_Reu = u.idUsuario\n"
+                    + "inner join persona pe on u.idPersonaUsuario = pe.idPersona\n"
+                    + "inner join cliente c on r.idClienteReu = c.idCliente\n"
+                    + "inner join persona p on c.id_PersonaC = p.idPersona;";
+
+            String datos[] = new String[10];
+            Statement st;
+            try {
+                st = pcDB.connection2().createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(3);
+                    datos[2] = rs.getString(4);
+                    datos[3] = rs.getString(5);
+                    datos[4] = rs.getString(6);
+                    datos[5] = rs.getString(2);
+                    datos[6] = rs.getString(7);
+                    datos[7] = rs.getString(8);
+                    datos[8] = rs.getString(9);
+                    datos[9] = rs.getString(10);
+                    modelo.addRow(datos);
+                }
+                tablaReuniones.setModel(modelo);
+                pcDB.connection2().close();
+                st.close();
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "error listar: " + e);
+            }
+
+        }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -215,15 +263,15 @@ public class ListadoReuniones extends javax.swing.JFrame {
             datosU[6] = txtServicio.getText();
             datosU[7] = txtNumeroContacto1.getText();
             datosU[8] = txtEstado.getText();
-            
+
             Date fechaN = DateCFecha.getDate();
             long d = fechaN.getTime();
             java.sql.Date fecha2 = new java.sql.Date(d);
-        
+
             String sqlCliente = "UPDATE persona SET nombres = '" + datosU[0] + "', dni = " + datosU[1] + " where dni =" + dniCliente;
             String sqlEmpleado = "UPDATE persona SET nombres = '" + datosU[2] + "', dni = " + datosU[3] + " where dni =" + dniEmpleado;
-            String sqlServicio = "UPDATE nivelparametro SET descripcionParametro = '" + datosU[6] + "' where descripcionParametro = '" + descripcionServicio+"'";
-            String sqlReunion = "UPDATE reunion SET fechaReunion = '" +  fecha2 + "', ubicacion = '" + datosU[5] + "', numeroContacto =" + datosU[7] + ", estado_reunion = '" + datosU[8] + "' where"
+            String sqlServicio = "UPDATE nivelparametro SET descripcionParametro = '" + datosU[6] + "' where descripcionParametro = '" + descripcionServicio + "'";
+            String sqlReunion = "UPDATE reunion SET fechaReunion = '" + fecha2 + "', ubicacion = '" + datosU[5] + "', numeroContacto =" + datosU[7] + ", estado_reunion = '" + datosU[8] + "' where"
                     + " fechaReunion = '" + fecha + "' and numeroContacto = " + numeroContacto;
 
             try {
@@ -240,51 +288,53 @@ public class ListadoReuniones extends javax.swing.JFrame {
                 PreparedStatement pps4 = pcDB.connection2().prepareStatement(sqlReunion);
                 pps4.executeUpdate();
                 pps4.close();
-                
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error de actualizacion " + e);
             }
-            
-             int fila = tablaReuniones.getRowCount();
+
+            int fila = tablaReuniones.getRowCount();
             for (int i = fila - 1; i >= 0; i--) {
                 modelo.removeRow(i);
             }
-            
-             String sql = "select np.descripcionParametro, pe.nombres as 'nombre empleado', pe.dni,\n"
-                + "p.nombres as 'nombre cliente',p.dni, r.fechaReunion, r.ubicacion, r.numeroContacto, r.estado_reunion from reunion r\n"
-                + "inner join servicio s on r.IdServicioReunion = s.IdServicio\n"
-                + "inner join nivelparametro np on s.idParametroTipoServicio = np.idParametro\n"
-                + "inner join usuario u on r.id_Usuario_Reu = u.idUsuario\n"
-                + "inner join persona pe on u.idPersonaUsuario = pe.idPersona\n"
-                + "inner join cliente c on r.idClienteReu = c.idCliente\n"
-                + "inner join persona p on c.id_PersonaC = p.idPersona;";
 
-        String datos[] = new String[9];
-        Statement st;
-        try {
-            st = pcDB.connection2().createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                datos[0] = rs.getString(2);
-                datos[1] = rs.getString(3);
-                datos[2] = rs.getString(4);
-                datos[3] = rs.getString(5);
-                datos[4] = rs.getString(6);
-                datos[5] = rs.getString(7);
-                datos[6] = rs.getString(1);
-                datos[7] = rs.getString(8);
-                datos[8] = rs.getString(9);
-                modelo.addRow(datos);
+            String sql = "select r.idReunion,np.descripcionParametro, pe.nombres as 'nombre empleado', pe.dni,\n"
+                    + "p.nombres as 'nombre cliente',p.dni, r.fechaReunion, r.ubicacion, r.numeroContacto, r.estado_reunion from reunion r\n"
+                    + "inner join servicio s on r.IdServicioReunion = s.IdServicio\n"
+                    + "inner join nivelparametro np on s.idParametroTipoServicio = np.idParametro\n"
+                    + "inner join usuario u on r.id_Usuario_Reu = u.idUsuario\n"
+                    + "inner join persona pe on u.idPersonaUsuario = pe.idPersona\n"
+                    + "inner join cliente c on r.idClienteReu = c.idCliente\n"
+                    + "inner join persona p on c.id_PersonaC = p.idPersona;";
+
+            String datos[] = new String[10];
+            Statement st;
+            try {
+                st = pcDB.connection2().createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(3);
+                    datos[2] = rs.getString(4);
+                    datos[3] = rs.getString(5);
+                    datos[4] = rs.getString(6);
+                    datos[5] = rs.getString(2);
+                    datos[6] = rs.getString(7);
+                    datos[7] = rs.getString(8);
+                    datos[8] = rs.getString(9);
+                    datos[9] = rs.getString(10);
+                    modelo.addRow(datos);
+                }
+                tablaReuniones.setModel(modelo);
+                pcDB.connection2().close();
+                st.close();
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "error listar: " + e);
             }
-            tablaReuniones.setModel(modelo);
-            pcDB.connection2().close();
-            st.close();
-           
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error listar: " + e);
-        }
 
         }
+    
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -303,24 +353,24 @@ public class ListadoReuniones extends javax.swing.JFrame {
 
     private void tablaReunionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaReunionesMouseClicked
         int filaSeleccionada = tablaReuniones.rowAtPoint(evt.getPoint());
-        txtcliente.setText(tablaReuniones.getValueAt(filaSeleccionada, 0).toString());
-        txtDniCliente.setText(tablaReuniones.getValueAt(filaSeleccionada, 1).toString());
-        dniCliente = tablaReuniones.getValueAt(filaSeleccionada, 1).toString();
-        txtEmpleado.setText(tablaReuniones.getValueAt(filaSeleccionada, 2).toString());
-        txtDniEmpleado.setText(tablaReuniones.getValueAt(filaSeleccionada, 3).toString());
-        dniEmpleado = tablaReuniones.getValueAt(filaSeleccionada, 3).toString();
-        DateCFecha.setDate(java.sql.Date.valueOf(tablaReuniones.getModel().getValueAt(filaSeleccionada, 4).toString()));
-        
+        txtcliente.setText(tablaReuniones.getValueAt(filaSeleccionada, 1).toString());
+        txtDniCliente.setText(tablaReuniones.getValueAt(filaSeleccionada, 2).toString());
+        dniCliente = tablaReuniones.getValueAt(filaSeleccionada, 2).toString();
+        txtEmpleado.setText(tablaReuniones.getValueAt(filaSeleccionada, 3).toString());
+        txtDniEmpleado.setText(tablaReuniones.getValueAt(filaSeleccionada, 4).toString());
+        dniEmpleado = tablaReuniones.getValueAt(filaSeleccionada, 4).toString();
+        DateCFecha.setDate(java.sql.Date.valueOf(tablaReuniones.getModel().getValueAt(filaSeleccionada, 6).toString()));
+
         Date fechaReunion;
         fechaReunion = DateCFecha.getDate();
         long d = fechaReunion.getTime();
         fecha = new java.sql.Date(d);
-        txtUbicacion.setText(tablaReuniones.getValueAt(filaSeleccionada, 5).toString());
-        txtServicio.setText(tablaReuniones.getValueAt(filaSeleccionada, 6).toString());
-        descripcionServicio = tablaReuniones.getValueAt(filaSeleccionada, 6).toString();
-        txtNumeroContacto1.setText(tablaReuniones.getValueAt(filaSeleccionada, 7).toString());
-        numeroContacto = tablaReuniones.getValueAt(filaSeleccionada, 7).toString();
-        txtEstado.setText(tablaReuniones.getValueAt(filaSeleccionada, 8).toString());
+        txtUbicacion.setText(tablaReuniones.getValueAt(filaSeleccionada, 7).toString());
+        txtServicio.setText(tablaReuniones.getValueAt(filaSeleccionada, 5).toString());
+        descripcionServicio = tablaReuniones.getValueAt(filaSeleccionada, 5).toString();
+        txtNumeroContacto1.setText(tablaReuniones.getValueAt(filaSeleccionada, 8).toString());
+        numeroContacto = tablaReuniones.getValueAt(filaSeleccionada, 8).toString();
+        txtEstado.setText(tablaReuniones.getValueAt(filaSeleccionada, 9).toString());
 
     }//GEN-LAST:event_tablaReunionesMouseClicked
 
