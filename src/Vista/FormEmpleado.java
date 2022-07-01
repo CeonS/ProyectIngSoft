@@ -323,6 +323,11 @@ public class FormEmpleado extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("Visualizar Colaboradores");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 160, 100));
 
         btnAsignarColaboradores.setText("Asignar Colaboradores");
@@ -581,6 +586,12 @@ public class FormEmpleado extends javax.swing.JFrame {
         ac.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAsignarColaboradoresActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       ListadoColaboradores lc = new ListadoColaboradores();
+       lc.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
