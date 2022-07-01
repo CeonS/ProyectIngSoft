@@ -36,7 +36,7 @@ public class Login extends javax.swing.JFrame {
                 this.dispose();
             } else if (u.resultadoT == 3) {
                 idCliente = c.AsignarIDCliente(pcDB.connection2(), usu);
-                FormCliente fc = new FormCliente();
+                FormCliente fc = new FormCliente(); // no s[e porque no funciona
                 fc.setVisible(true);
                 this.dispose();
             } else if (u.resultadoT == 4) {
