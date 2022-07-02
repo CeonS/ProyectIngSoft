@@ -35,7 +35,7 @@ public class ListadoClientes extends javax.swing.JFrame {
 
         tablaClientes.setModel(modelo);
 
-        String sql = "SELECT p.*,np.descripcionParametro, if(p.id_ParametroGenero=6,'Femenino','Masculino') as Genero FROM persona p"
+        String sql = "SELECT c.idCliente,p.*,np.descripcionParametro, if(p.id_ParametroGenero=6,'Femenino','Masculino') as Genero FROM persona p"
                 + " inner join cliente c on p.idPersona = c.id_PersonaC"
                 + " inner join nivelparametro np on c.id_ParametroTipo_Cliente = np.idParametro";
 
@@ -46,15 +46,15 @@ public class ListadoClientes extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 datos[0] = rs.getString(1);
-                datos[1] = rs.getString(3);
-                datos[2] = rs.getString(4);
-                datos[3] = rs.getString(5);
-                datos[4] = rs.getString(6);
-                datos[5] = rs.getString(7);
-                datos[6] = rs.getString(8);
-                datos[7] = rs.getString(9);
-                datos[8] = rs.getString(10);
-                datos[9] = rs.getString(11);
+                datos[1] = rs.getString(4);
+                datos[2] = rs.getString(5);
+                datos[3] = rs.getString(6);
+                datos[4] = rs.getString(7);
+                datos[5] = rs.getString(8);
+                datos[6] = rs.getString(9);
+                datos[7] = rs.getString(10);
+                datos[8] = rs.getString(11);
+                datos[9] = rs.getString(12);
                 modelo.addRow(datos);
             }
             tablaClientes.setModel(modelo);
@@ -274,7 +274,7 @@ public class ListadoClientes extends javax.swing.JFrame {
 
             String sqlUpdate = "UPDATE persona SET nombres = '" + datosU[0] + "', apellidos = '" + datosU[1] + "',"
                     + " direccion = '" + datosU[2] + "', telefono = " + datosU[3] + ", dni = " + datosU[4] + ", correo = '"
-                    + datosU[5] + "', estado_persona = '" + datosU[6] + "', id_ParametroGenero = " + datosU[8] + " where idPersona = " + dbP.AsignarIDPersona(pcDB.connection2(),dni) + ";\n";
+                    + datosU[5] + "', estado_persona = '" + datosU[6] + "', id_ParametroGenero = " + datosU[8] + " where idPersona = " + dbP.AsignarIDPersona(pcDB.connection2(), dni) + ";\n";
 
             String sqlUpdate2 = "UPDATE cliente SET id_ParametroTipo_Cliente = " + datosU[7] + ", estado_cliente = '" + datosU[6] + "' where"
                     + " id_PersonaC = " + dbP.AsignarIDPersona(pcDB.connection2(), dni) + ";\n";
@@ -332,14 +332,12 @@ public class ListadoClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        FormEmpleado fe = new FormEmpleado();
+       FormEmpleado fe = new FormEmpleado();
         FormColaborador fc = new FormColaborador();
-      
         if (fc.colaboradorForm == true) {
             fc.setVisible(true);
             this.dispose();
         } else {
-            
             fe.setVisible(true);
             this.dispose();
         }
@@ -347,16 +345,16 @@ public class ListadoClientes extends javax.swing.JFrame {
 
     private void tablaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClientesMouseClicked
         int filaSeleccionada = tablaClientes.rowAtPoint(evt.getPoint());
-        txtnombres.setText(tablaClientes.getValueAt(filaSeleccionada, 0).toString());
-        txtapellidos.setText(tablaClientes.getValueAt(filaSeleccionada, 1).toString());
-        txtdireccion1.setText(tablaClientes.getValueAt(filaSeleccionada, 2).toString());
-        txttelefono.setText(tablaClientes.getValueAt(filaSeleccionada, 3).toString());
-        txtdni.setText(tablaClientes.getValueAt(filaSeleccionada, 4).toString());
-        dni = tablaClientes.getValueAt(filaSeleccionada, 4).toString();
-        txtcorreo.setText(tablaClientes.getValueAt(filaSeleccionada, 5).toString());
-        txtTipoCliente.setText(tablaClientes.getValueAt(filaSeleccionada, 7).toString());
-        txtEstado.setText(tablaClientes.getValueAt(filaSeleccionada, 6).toString());
-        txtgenero.setText(tablaClientes.getValueAt(filaSeleccionada, 8).toString());
+        txtnombres.setText(tablaClientes.getValueAt(filaSeleccionada, 1).toString());
+        txtapellidos.setText(tablaClientes.getValueAt(filaSeleccionada, 2).toString());
+        txtdireccion1.setText(tablaClientes.getValueAt(filaSeleccionada, 3).toString());
+        txttelefono.setText(tablaClientes.getValueAt(filaSeleccionada, 4).toString());
+        txtdni.setText(tablaClientes.getValueAt(filaSeleccionada, 5).toString());
+        dni = tablaClientes.getValueAt(filaSeleccionada, 5).toString();
+        txtcorreo.setText(tablaClientes.getValueAt(filaSeleccionada, 6).toString());
+        txtTipoCliente.setText(tablaClientes.getValueAt(filaSeleccionada, 8).toString());
+        txtEstado.setText(tablaClientes.getValueAt(filaSeleccionada, 7).toString());
+        txtgenero.setText(tablaClientes.getValueAt(filaSeleccionada, 9).toString());
     }//GEN-LAST:event_tablaClientesMouseClicked
 
     /**

@@ -10,14 +10,15 @@ import static Vista.RegistroDatosEmpleado.usuario;
 
 public class RegistroDatosColaborador extends javax.swing.JFrame {
 
-    
     @SuppressWarnings("deprecation")
 
     public RegistroDatosColaborador() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-RegistrarCuenta rc = new RegistrarCuenta();
+    public static int idPersona;
+    RegistrarCuenta rc = new RegistrarCuenta();
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -226,9 +227,9 @@ RegistrarCuenta rc = new RegistrarCuenta();
         int sexo = 0;
         int tipocolaborador = 0;
         int tipoUsuario;
-        int idPersona;
         usuario = rc.usuarioDE;
         DBNivelParametros np = new DBNivelParametros();
+        probarConexionDB pcDB = new probarConexionDB();
         if (rbtnfemenino.isSelected() == true) {
             sexo = np.Validar(pc.connection2(), rbtnfemenino.getLabel());
 
@@ -246,16 +247,15 @@ RegistrarCuenta rc = new RegistrarCuenta();
         if (p.bandAgregarPersona == true) {
             tipoUsuario = np.Validar(pc.connection2(), "Colaborador");
             idPersona = p.AsignarIDPersona(pc.connection2(), dni);
-            
             u.AgregarUsuarioA(pc.connection2(), usuario, idPersona, tipoUsuario);
-            if(u.bandAgregarUsuario == true){
-            FormEmpleado fe = new FormEmpleado();
-            fe.setVisible(true);
-            this.dispose();
-            }else{
+            if (u.bandAgregarUsuario == true) {
+                Login l = new Login();
+                l.setVisible(true);
+                this.dispose();
+            } else {
                 JOptionPane.showMessageDialog(null, "Error no se pudo crear el Usuario!");
             }
-            
+
             if (cboxTecnico.isSelected() == true) {
                 tipocolaborador = np.Validar(pc.connection2(), cboxTecnico.getLabel());
 
@@ -268,8 +268,8 @@ RegistrarCuenta rc = new RegistrarCuenta();
             }
             c.AgregarColaborador(pc.connection2(), tipocolaborador, p.AsignarIDPersona(pc.connection2(), dni), zonaLaboral);
             if (c.bandAgregarColaborador == true) {
-                FormEmpleado fe = new FormEmpleado();
-                fe.setVisible(true);
+                Login l = new Login();
+                l.setVisible(true);
                 this.dispose();
             }
 

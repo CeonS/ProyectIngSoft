@@ -337,7 +337,7 @@ public class RegistrarProyectos extends javax.swing.JFrame {
         DBReunion r = new DBReunion();
         
         p.AgregarProyecto(pcDB.connection2(), reunion, idParametro, Date.valueOf(fechaInicial), Date.valueOf(fechaFinal), zonaEjecucion, observaciones);
-        r.ActualizarEstadoReunion(pcDB.connection2(), "Realizada");
+        r.ActualizarEstadoReunion(pcDB.connection2(), "Realizada", reunion);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**

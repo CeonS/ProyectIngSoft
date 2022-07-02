@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import Controlador.DBNivelParametros;
 import Controlador.DBPersona;
 import Controlador.DBUsuario;
+import static Vista.RegistroDatosColaborador.idPersona;
 
 public class RegistroDatosEmpleado extends javax.swing.JFrame {
 
@@ -15,13 +16,15 @@ public class RegistroDatosEmpleado extends javax.swing.JFrame {
     public RegistroDatosEmpleado() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
     }
-RegistrarCuenta rc = new RegistrarCuenta();
-DBNivelParametros np = new DBNivelParametros();
+    RegistrarCuenta rc = new RegistrarCuenta();
+    DBNivelParametros np = new DBNivelParametros();
+    public static int idPersona;
+
     public int determinarGenero() {
         int sexo = 0;
-        
+
         if (rbtnfemenino.isSelected() == true) {
             sexo = np.Validar(pc.connection2(), rbtnfemenino.getLabel());
 
@@ -32,7 +35,6 @@ DBNivelParametros np = new DBNivelParametros();
         }
         return sexo;
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -191,27 +193,22 @@ DBNivelParametros np = new DBNivelParametros();
         String telefono = txtelefono.getText();
         usuario = rc.usuarioDE;
         int tipoUsuario = 0;
-        int idPersona = 0;
-        
 
-        
         DBPersona rp = new DBPersona();
-        
+
         DBUsuario u = new DBUsuario();
-      
-        
 
         rp.AgregarPersona(pc.connection2(), nombres, apellidos, rc.correo, direccion, dni, telefono, determinarGenero());
         if (rp.bandAgregarPersona == true) {
             tipoUsuario = np.Validar(pc.connection2(), "Empleado");
             idPersona = rp.AsignarIDPersona(pc.connection2(), dni);
-            
+
             u.AgregarUsuarioA(pc.connection2(), usuario, idPersona, tipoUsuario);
-            if(u.bandAgregarUsuario == true){
-            FormEmpleado fe = new FormEmpleado();
-            fe.setVisible(true);
-            this.dispose();
-            }else{
+            if (u.bandAgregarUsuario == true) {
+                Login l = new Login();
+                l.setVisible(true);
+                this.dispose();
+            } else {
                 JOptionPane.showMessageDialog(null, "Error no se pudo crear el Usuario!");
             }
         }

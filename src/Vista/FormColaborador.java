@@ -1,24 +1,90 @@
 package Vista;
 
+import Controlador.DBColaborador;
+import Controlador.DBDetalleColaborador;
+import Controlador.DBPersona;
 import Modelo.probarConexionDB;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class FormColaborador extends javax.swing.JFrame {
 
     public FormColaborador() {
         initComponents();
         this.setLocationRelativeTo(null);
+        panelProyectosTabla.setVisible(false);
+        if(FormEmpleado.control != 1){
+            aceptarDetalle();
+        }
         
+
+    }
+    DBDetalleColaborador dc = new DBDetalleColaborador();
+    DBPersona p = new DBPersona();
+    DefaultTableModel modelo = new DefaultTableModel();
+    Login l = new Login();
+    DBColaborador c = new DBColaborador();
+    public static int idColaborador;
+
+    public void aceptarDetalle() {
+
+        idColaborador = c.hallarIDColaboradorIdPersona(pcDB.connection2(), l.personaPerfil);
+        dc.ValidarAceptacionDetalleColaborador(pcDB.connection2(), idColaborador);
+        if (dc.aceptarDetalle == true) {
+
+            JOptionPane.showMessageDialog(null, "Tiene un proyecto por confirmar! Dirijase al apartado de proyectos!");
+
+            modelo.addColumn("ID");
+            modelo.addColumn("ID Reunión");
+            modelo.addColumn("Fecha Inicial");
+            modelo.addColumn("Fecha Final");
+            modelo.addColumn("Zona Ejecución");
+            modelo.addColumn("Sector");
+            modelo.addColumn("Observaciones");
+            modelo.addColumn("Estado");
+
+            tablaProyecto.setModel(modelo);
+
+            String sql = "select p.idProyecto, p.id_Reunion_Proy ,p.fecha_Inicial_Proyecto, p.fecha_Final_Proyecto, p.zonaEjecucionProy, np.descripcionParametro,"
+                    + " p.observacionesProy, p.estado_proyecto from proyecto p \n"
+                    + "inner join nivelparametro np on p.id_Parametro_Sector_Proy = np.idParametro "
+                    + "inner join detallecolaborador dc on p.idProyecto = dc.id_Proyecto_DetalleColaboradores where dc.estadoDetalleColaborador = 'Pendiente'";
+
+            String datos[] = new String[8];
+            Statement st;
+            try {
+                st = pcDB.connection2().createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(2);
+                    datos[2] = rs.getString(3);
+                    datos[3] = rs.getString(4);
+                    datos[4] = rs.getString(5);
+                    datos[5] = rs.getString(6);
+                    datos[6] = rs.getString(7);
+                    datos[7] = rs.getString(8);
+                    modelo.addRow(datos);
+                }
+                tablaProyecto.setModel(modelo);
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "error listar: " + e);
+            }
+            btnvisualizarproyecto.setVisible(false);
+            panelProyectosTabla.setVisible(true);
+        }
     }
 
     public static boolean colaboradorForm = false;
-     String datos [] = new String[9];
+    String datos[] = new String[9];
+    probarConexionDB pcDB = new probarConexionDB();
 
     public void RellenarPerfil() {
         Login l = new Login();
-        probarConexionDB pcDB = new probarConexionDB();
+
         int id = 0;
         int resultado = 0;
         String SQL = "select * from persona p"
@@ -42,16 +108,16 @@ public class FormColaborador extends javax.swing.JFrame {
                     datos[6] = rs.getString("p.id_ParametroGenero");
                     datos[7] = rs.getString("c.zonaLaboral");
                     datos[8] = rs.getString("id_Parametro_Tipo_Colaborador");
-                    if(datos[6].equalsIgnoreCase("6")){
+                    if (datos[6].equalsIgnoreCase("6")) {
                         txtGenero.setText("Femenino");
-                    }else{
+                    } else {
                         txtGenero.setText("Masculino");
                     }
-                    if(datos[8].equalsIgnoreCase("7")){
+                    if (datos[8].equalsIgnoreCase("7")) {
                         txtTipoColaborador.setText("Técnico");
-                    }else if(datos[9].equalsIgnoreCase("8")){
+                    } else if (datos[8].equalsIgnoreCase("8")) {
                         txtTipoColaborador.setText("Ingeniero");
-                    }else {
+                    } else {
                         txtTipoColaborador.setText("Auxiliar Técnico");
                     }
                     txtNombres.setText(datos[0]);
@@ -61,7 +127,6 @@ public class FormColaborador extends javax.swing.JFrame {
                     txtDNI.setText(datos[4]);
                     txtCorreo.setText(datos[5]);
                     txtZonaLaboral.setText(datos[7]);
-             
 
                 }
             } else {
@@ -72,10 +137,9 @@ public class FormColaborador extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error de Registro " + e.getMessage());
         }
-        
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -111,6 +175,11 @@ public class FormColaborador extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         btnCerrarSesion = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
+        panelProyectosTabla = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaProyecto = new javax.swing.JTable();
+        btnRechazar = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
         btnvisualizarproyecto = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -263,6 +332,61 @@ public class FormColaborador extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(153, 204, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tablaProyecto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaProyecto);
+
+        btnRechazar.setText("CANCELAR");
+        btnRechazar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRechazarActionPerformed(evt);
+            }
+        });
+
+        btnAceptar.setText("ACEPTAR");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelProyectosTablaLayout = new javax.swing.GroupLayout(panelProyectosTabla);
+        panelProyectosTabla.setLayout(panelProyectosTablaLayout);
+        panelProyectosTablaLayout.setHorizontalGroup(
+            panelProyectosTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelProyectosTablaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelProyectosTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(panelProyectosTablaLayout.createSequentialGroup()
+                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRechazar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        panelProyectosTablaLayout.setVerticalGroup(
+            panelProyectosTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelProyectosTablaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelProyectosTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRechazar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
+        );
+
+        jPanel6.add(panelProyectosTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 259, 990, 330));
+
         btnvisualizarproyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/visualizacion.png"))); // NOI18N
         jPanel6.add(btnvisualizarproyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 140, -1));
 
@@ -353,6 +477,7 @@ public class FormColaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnvisualizarvisitatecnicaActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        colaboradorForm = false;
         Login l = new Login();
         l.setVisible(true);
         this.dispose();
@@ -361,6 +486,34 @@ public class FormColaborador extends javax.swing.JFrame {
     private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidosActionPerformed
+
+    private void btnRechazarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechazarActionPerformed
+
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea rechazar la reunión?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (opcion == 0) {
+
+            String estado = "Inactivo";
+            idColaborador = c.hallarIDColaboradorIdPersona(pcDB.connection2(), l.personaPerfil);
+            dc.ActualizarEstadoDetalleColaborador(pcDB.connection2(), estado, idColaborador);
+            panelProyectosTabla.setVisible(false);
+            btnvisualizarproyecto.setVisible(true);
+
+        }
+    }//GEN-LAST:event_btnRechazarActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea confirmar la reunión?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (opcion == 0) {
+
+            String estado = "Activo";
+            idColaborador = c.hallarIDColaboradorIdPersona(pcDB.connection2(), l.personaPerfil);
+            dc.ActualizarEstadoDetalleColaborador(pcDB.connection2(), estado, idColaborador);
+            panelProyectosTabla.setVisible(false);
+            btnvisualizarproyecto.setVisible(true);
+
+        }
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -405,7 +558,9 @@ public class FormColaborador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnRechazar;
     private javax.swing.JButton btnvisualizarclientes;
     private javax.swing.JButton btnvisualizarproyecto;
     private javax.swing.JButton btnvisualizarvisitatecnica;
@@ -437,7 +592,10 @@ public class FormColaborador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel panelProyectosTabla;
+    private javax.swing.JTable tablaProyecto;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDNI;

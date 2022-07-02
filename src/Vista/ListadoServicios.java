@@ -60,7 +60,7 @@ public class ListadoServicios extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaServicios = new javax.swing.JTable();
         btnactualizar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtEstado = new javax.swing.JTextField();
@@ -133,16 +133,16 @@ public class ListadoServicios extends javax.swing.JFrame {
         });
         getContentPane().add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, 130, 30));
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 204));
-        jButton4.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(57, 73, 171));
-        jButton4.setText("SALIR");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(204, 204, 204));
+        btnSalir.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(57, 73, 171));
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 480, -1, 30));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 480, -1, 30));
 
         jLabel8.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,7 +220,7 @@ public class ListadoServicios extends javax.swing.JFrame {
             datosU[3] = txtEstado.getText();
 
             String sqlServicio = "UPDATE servicio SET descripcionServicio = '" + datosU[1] + "', monto = '" + datosU[2] + "',"
-                    + " estadoServicio = '" + datosU[3] + "' where idParametroTipoServicio = "+ np.Validar(pcDB.connection2(), tipoServicio) ;
+                    + " estadoServicio = '" + datosU[3] + "' where idParametroTipoServicio = " + np.Validar(pcDB.connection2(), tipoServicio);
 
             String sqlParametro = "UPDATE nivelparametro SET descripcionParametro = '" + datosU[0] + "' where idParametro =" + np.Validar(pcDB.connection2(), tipoServicio);
 
@@ -240,34 +240,40 @@ public class ListadoServicios extends javax.swing.JFrame {
             for (int i = fila - 1; i >= 0; i--) {
                 modelo.removeRow(i);
             }
-             String sql = "select s.*, np.descripcionParametro from servicio s\n"
-                + " inner join nivelparametro np on s.idParametroTipoServicio = np.idParametro"
-                + " where np.tipoParameto = 'Tipo Servicio'";
+            String sql = "select s.*, np.descripcionParametro from servicio s\n"
+                    + " inner join nivelparametro np on s.idParametroTipoServicio = np.idParametro"
+                    + " where np.tipoParameto = 'Tipo Servicio'";
 
-        String datos[] = new String[5];
-        Statement st;
-        try {
-            st = pcDB.connection2().createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(6);
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(2);
-                datos[4] = rs.getString(5);
-                modelo.addRow(datos);
+            String datos[] = new String[5];
+            Statement st;
+            try {
+                st = pcDB.connection2().createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(6);
+                    datos[2] = rs.getString(3);
+                    datos[3] = rs.getString(2);
+                    datos[4] = rs.getString(5);
+                    modelo.addRow(datos);
+                }
+                tablaServicios.setModel(modelo);
+            } catch (Exception e) {
             }
-            tablaServicios.setModel(modelo);
-        } catch (Exception e) {
-        }
         }
     }//GEN-LAST:event_btnactualizarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         FormEmpleado fe = new FormEmpleado();
-        fe.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+        FormColaborador fc = new FormColaborador();
+        if (fc.colaboradorForm == true) {
+            fc.setVisible(true);
+            this.dispose();
+        } else {
+            fe.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
         // TODO add your handling code here:
@@ -330,8 +336,8 @@ public class ListadoServicios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnactualizar;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -57,8 +57,8 @@ public class ListadoVisitasTecnicas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaVisitaTecnica = new javax.swing.JTable();
         btnactualizar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         txtEstado = new javax.swing.JTextField();
         DateCFecha = new com.toedter.calendar.JDateChooser();
         jLabel8 = new javax.swing.JLabel();
@@ -125,9 +125,6 @@ public class ListadoVisitasTecnicas extends javax.swing.JFrame {
         });
         getContentPane().add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 150, 30));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/support bw.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 390, -1));
-
         btnSalir.setBackground(new java.awt.Color(204, 204, 204));
         btnSalir.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(57, 73, 171));
@@ -138,6 +135,9 @@ public class ListadoVisitasTecnicas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 510, -1, 30));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/support bw.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 390, -1));
         getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 170, -1));
 
         DateCFecha.setDateFormatString("yyyy-MM-dd");

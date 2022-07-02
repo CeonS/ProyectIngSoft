@@ -18,7 +18,7 @@ public class DBVisitaTecnica {
 
             pst.setInt(1, idProyecto);
             pst.setDate(2, fechaVisitaTecnica);
-            pst.setString(3, "Activo");
+            pst.setString(3, "Activa");
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Se registró correctamente la Visita Técnica");

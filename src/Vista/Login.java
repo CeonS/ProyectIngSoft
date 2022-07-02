@@ -12,6 +12,7 @@ public class Login extends javax.swing.JFrame {
 
     public static int bandTipoUsuario = 0;
     public static int personaPerfil = 0;
+
     @SuppressWarnings("deprecation")
     public Login() {
         initComponents();
@@ -38,15 +39,14 @@ public class Login extends javax.swing.JFrame {
                 idCliente = c.AsignarIDCliente(pcDB.connection2(), usu);
                 FormCliente fc = new FormCliente(); // no s[e porque no funciona
                 fc.setVisible(true);
-                this.dispose();
+                this.dispose();   
             } else if (u.resultadoT == 4) {
 
                 FormColaborador fcola = new FormColaborador();
                 fcola.setVisible(true);
                 this.dispose();
+    
 
-            } else {
-                JOptionPane.showMessageDialog(null, "Debes iniciar sesión como colaborador!");
             }
         }
     }

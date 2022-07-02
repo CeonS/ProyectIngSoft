@@ -409,14 +409,12 @@ public class ListadoColaboradores extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaColaboradoresMouseClicked
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        FormEmpleado fe = new FormEmpleado();
+       FormEmpleado fe = new FormEmpleado();
         FormColaborador fc = new FormColaborador();
-
         if (fc.colaboradorForm == true) {
             fc.setVisible(true);
             this.dispose();
         } else {
-
             fe.setVisible(true);
             this.dispose();
         }

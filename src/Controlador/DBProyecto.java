@@ -23,7 +23,7 @@ public class DBProyecto {
             pst.setDate(3,fechaInicial );
             pst.setDate(4, fechaFinal);
             pst.setString(5, zonaEjecucion);
-            pst.setString(6, "Activo");
+            pst.setString(6, "Pendiente");
             pst.setString(7, observaciones);
 
             pst.executeUpdate();

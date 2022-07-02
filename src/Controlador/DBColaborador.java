@@ -62,4 +62,36 @@ public class DBColaborador {
         return listaColaboradoresTipo;
     }
    
+     public int hallarIDColaboradorIdPersona(Connection con, int idPersona){
+         
+         
+        int id = 0;
+        int resultado = 0;
+        String SQL = "select * from colaborador c inner join persona p on c.id_Persona_Tec = p.idPersona "
+                + "where p.idPersona = " + idPersona;
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+
+            if (rs.next()) {
+                resultado = 1;
+
+                if (resultado == 1) {
+
+                    id = rs.getInt("c.idColaborador");
+
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Error de Acceso, Usuario No Registrado");
+            }
+            con.close();
+            st.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error de Registro3 " + e.getMessage());
+        }
+        return id;
+         
+     }
+     
+     
 }

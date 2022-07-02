@@ -257,8 +257,8 @@ public class ListadoProyectos extends javax.swing.JFrame {
         for (int i = fila - 1; i >= 0; i--) {
             modelo.removeRow(i);
         }
-        
-          String sql = "select p.idProyecto, p.id_Reunion_Proy ,p.fecha_Inicial_Proyecto, p.fecha_Final_Proyecto, p.zonaEjecucionProy, np.descripcionParametro,"
+
+        String sql = "select p.idProyecto, p.id_Reunion_Proy ,p.fecha_Inicial_Proyecto, p.fecha_Final_Proyecto, p.zonaEjecucionProy, np.descripcionParametro,"
                 + " p.observacionesProy, p.estado_proyecto from proyecto p \n"
                 + "inner join nivelparametro np on p.id_Parametro_Sector_Proy = np.idParametro";
 
@@ -286,14 +286,12 @@ public class ListadoProyectos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        FormEmpleado fe = new FormEmpleado();
+       FormEmpleado fe = new FormEmpleado();
         FormColaborador fc = new FormColaborador();
-
         if (fc.colaboradorForm == true) {
             fc.setVisible(true);
             this.dispose();
         } else {
-
             fe.setVisible(true);
             this.dispose();
         }

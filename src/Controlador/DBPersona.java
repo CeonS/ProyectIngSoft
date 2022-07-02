@@ -95,12 +95,12 @@ public class DBPersona {
         return id;
     }
 
-    public int AsignarIDPersonaConIdUsuario(Connection con, int descripcion) {
+    public int AsignarIDPersonaConUsuario(Connection con, int descripcion) {
 
         int id = 0;
         int resultado = 0;
-        String SQL = "select id_PersonaC from cliente c inner join persona p on c.id_PersonaC = p.idPersona "
-                + "where p.nombre = " + descripcion;
+        String SQL = "select id_PersonaC from usuario u inner join persona p on u.idPersonaUsuario = p.idPersona "
+                + "where Usuario = " + descripcion;
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);

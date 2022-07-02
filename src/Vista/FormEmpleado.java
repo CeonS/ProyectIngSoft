@@ -10,11 +10,11 @@ public class FormEmpleado extends javax.swing.JFrame {
     public FormEmpleado() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+        control = 1;
     }
 
         
-     
+     public static int control;
      String datos [] = new String[9];
 
     public void RellenarPerfil() {
@@ -131,6 +131,7 @@ public class FormEmpleado extends javax.swing.JFrame {
         btnvisualizarclientes = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         btnrealizarpago = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -441,6 +442,9 @@ public class FormEmpleado extends javax.swing.JFrame {
         jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cara-feliz (1).png"))); // NOI18N
         jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, -1, -1));
 
+        jButton3.setText("Generar reporte");
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 500, 180, 80));
+
         jTabbedPane1.addTab("Clientes", jPanel2);
 
         jPanel9.setBackground(new java.awt.Color(153, 204, 255));
@@ -647,6 +651,7 @@ public class FormEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton btnvisualizarvisitatecnica;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

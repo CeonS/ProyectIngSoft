@@ -23,34 +23,34 @@ public class DBUsuario {
             if (rsCliente.next()) {
                 resultadoT = 3;
             } else {
-                if (resultadoT == 0) {
-                    String SQLEmpleado = "select * from usuario"
-                            + " where idParametroUsuario = 2 and Usuario like '" + usu + "'";
-                    ResultSet rsEmpleado = st.executeQuery(SQLEmpleado);
-                    if (rsEmpleado.next()) {
-                        resultadoT = 2;
+
+                String SQLEmpleado = "select * from usuario"
+                        + " where idParametroUsuario = 2 and Usuario like '" + usu + "'";
+                ResultSet rsEmpleado = st.executeQuery(SQLEmpleado);
+                if (rsEmpleado.next()) {
+                    resultadoT = 2;
+
+                } else {
+
+                    String SQLColaborador = "select * from usuario"
+                            + " where idParametroUsuario = 4 and Usuario like '" + usu + "'";
+                    ResultSet rsColaborador = st.executeQuery(SQLColaborador);
+                    if (rsColaborador.next()) {
+                        resultadoT = 4;
 
                     } else {
-                        if (resultadoT == 0) {
-                         String SQLColaborador = "select * from usuario"
-                          + " where idParametroUsuario = 4 and Usuario like '" + usu + "'";
-                         ResultSet rsColaborador = st.executeQuery(SQLColaborador);
-                            if (rsColaborador.next()) {
-                                resultadoT = 4;
-
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Error de Acceso, Usuario No Registrado");
-                            }
-                        }
+                        JOptionPane.showMessageDialog(null, "Error de Acceso, Usuario No Registrado");
                     }
+
                 }
+
                 con.close();
                 st.close();
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error de Registro " + e.getMessage());
         }
-        }
+    }
 
     public static boolean bandAgregarUsuario = false;
 
@@ -79,8 +79,8 @@ public class DBUsuario {
 
         }
     }
-    
-     public void AgregarUsuarioCliente(Connection con, int persona, String nombre, String dni) {
+
+    public void AgregarUsuarioCliente(Connection con, int persona, String nombre, String dni) {
 
         String SQLUsuario = "insert into usuario (estado_usuario, fechaRegistro"
                 + ", idParametroUsuario, idPersonaUsuario, Usuario) values(?,?,?,?,?)";
@@ -92,8 +92,8 @@ public class DBUsuario {
             pst.setString(2, fechaActual());
             pst.setInt(3, 3);
             pst.setInt(4, persona);
-            pst.setString(5, nombre+dni);
- 
+            pst.setString(5, nombre + dni);
+
             pst.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
@@ -114,8 +114,6 @@ public class DBUsuario {
         return formatoFecha.format(fecha);
 
     }
-    
-    
 
     public String AsignarUsuario(Connection con, String descripcion) {
 
@@ -135,7 +133,7 @@ public class DBUsuario {
 
                 }
             } else {
-                
+
                 JOptionPane.showMessageDialog(null, "Error de Acceso, Usuario No Registrado");
             }
         } catch (Exception e) {
@@ -144,6 +142,7 @@ public class DBUsuario {
         return id;
     }
     public static boolean ExisteUsuario = false;
+
     public void ExisteUsuario(Connection con, String descripcion) {
 
         String id = "";
@@ -164,12 +163,12 @@ public class DBUsuario {
                 }
             } else {
                 ExisteUsuario = false;
-               JOptionPane.showMessageDialog(null, "Se creará un usuario para el cliente!");
+                JOptionPane.showMessageDialog(null, "Se creará un usuario para el cliente!");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error de Registro " + e.getMessage());
         }
-   
+
     }
 
 }

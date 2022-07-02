@@ -39,9 +39,9 @@ public class DBReunion {
         }
     }
 
-    public void ActualizarEstadoReunion(Connection con, String estado) {
+    public void ActualizarEstadoReunion(Connection con, String estado, int idReunion) {
 
-        String sqlEstado = "UPDATE reunion SET estado_reunion = '" + estado + "'";
+        String sqlEstado = "UPDATE reunion SET estado_reunion = '" + estado + "' where idReunion = "+idReunion;
 
         try {
 
