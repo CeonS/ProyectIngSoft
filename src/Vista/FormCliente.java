@@ -50,7 +50,7 @@ public class FormCliente extends javax.swing.JFrame {
                     + "inner join usuario u on r.id_Usuario_Reu = u.idUsuario\n"
                     + "inner join persona pe on u.idPersonaUsuario = pe.idPersona\n"
                     + "inner join cliente c on r.idClienteReu = c.idCliente\n"
-                    + "inner join persona p on c.id_PersonaC = p.idPersona where c.idCliente = " + l.idCliente +" and r.estado_reunion = 'Pendiente'";
+                    + "inner join persona p on c.id_PersonaC = p.idPersona where c.idCliente = " + l.idCliente + " and r.estado_reunion = 'Pendiente'";
 
             String datos[] = new String[10];
             Statement st;
@@ -364,7 +364,7 @@ public class FormCliente extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(panelReunionesTablaLayout.createSequentialGroup()
                         .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 435, Short.MAX_VALUE)
                         .addComponent(btnRechazar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -389,13 +389,14 @@ public class FormCliente extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jlblNohayReu, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(287, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelReunionesTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jlblNohayReu, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panelReunionesTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -595,10 +596,14 @@ public class FormCliente extends javax.swing.JFrame {
         int opcion = JOptionPane.showConfirmDialog(null, "¿Desea confirmar la reunión?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
         if (opcion == 0) {
 
-            String estado = "Aceptada";
-            r.ActualizarEstadoReunion(pcDB.connection2(), estado, idReunion);
-            panelReunionesTabla.setVisible(false);
-            jlblNohayReu.setVisible(true);
+            if (idReunion == 0) {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila primero");
+            } else {
+                String estado = "Aceptada";
+                r.ActualizarEstadoReunion(pcDB.connection2(), estado, idReunion);
+                panelReunionesTabla.setVisible(false);
+                jlblNohayReu.setVisible(true);
+            }
 
         }
 
@@ -609,17 +614,21 @@ public class FormCliente extends javax.swing.JFrame {
         int opcion = JOptionPane.showConfirmDialog(null, "¿Desea rechazar la reunión?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
         if (opcion == 0) {
 
-            String estado = "Inactiva";
-            r.ActualizarEstadoReunion(pcDB.connection2(), estado, idReunion);
-            panelReunionesTabla.setVisible(false);
-            jlblNohayReu.setVisible(true);
+            if (idReunion == 0) {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila primero");
+            } else {
+                String estado = "Inactiva";
+                r.ActualizarEstadoReunion(pcDB.connection2(), estado, idReunion);
+                panelReunionesTabla.setVisible(false);
+                jlblNohayReu.setVisible(true);
+            }
 
         }
     }//GEN-LAST:event_btnRechazarActionPerformed
 
     private void tablaReunionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaReunionesMouseClicked
-     int filaSeleccionada = tablaReuniones.rowAtPoint(evt.getPoint());
-     idReunion = Integer.parseInt(tablaReuniones.getValueAt(filaSeleccionada, 0).toString());
+        int filaSeleccionada = tablaReuniones.rowAtPoint(evt.getPoint());
+        idReunion = Integer.parseInt(tablaReuniones.getValueAt(filaSeleccionada, 0).toString());
     }//GEN-LAST:event_tablaReunionesMouseClicked
 
     /**

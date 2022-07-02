@@ -140,9 +140,8 @@ public class RegistrarCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        
-        FormEmpleado fe = new FormEmpleado();
-        fe.setVisible(true);
+        Login l = new Login();
+        l.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 

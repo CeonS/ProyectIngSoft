@@ -4,6 +4,7 @@ import Modelo.probarConexionDB;
 import javax.swing.JOptionPane;
 import Controlador.DBNivelParametros;
 import Controlador.DBPersona;
+import Controlador.DBRegistraCuenta;
 import Controlador.DBUsuario;
 import static Vista.RegistroDatosColaborador.idPersona;
 
@@ -18,6 +19,7 @@ public class RegistroDatosEmpleado extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
 
     }
+    DBRegistraCuenta drc = new DBRegistraCuenta();
     RegistrarCuenta rc = new RegistrarCuenta();
     DBNivelParametros np = new DBNivelParametros();
     public static int idPersona;
@@ -215,6 +217,12 @@ public class RegistroDatosEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnenviarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+
+        probarConexionDB pcDB = new probarConexionDB();
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Segur@ que quiere volver?", "Confirmar",JOptionPane.YES_NO_CANCEL_OPTION);
+        if(opcion == 0){
+            drc.EliminarLoginUsuario(pcDB.connection2(), usuario);
+        }
         Login l = new Login();
         l.setVisible(true);
         this.dispose();
