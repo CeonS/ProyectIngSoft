@@ -141,7 +141,6 @@ public class FormCliente extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -160,6 +159,7 @@ public class FormCliente extends javax.swing.JFrame {
         txtDireccion = new javax.swing.JTextField();
         btnCerrarSesion = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         panelReuniones = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         panelReunionesTabla = new javax.swing.JPanel();
@@ -198,7 +198,7 @@ public class FormCliente extends javax.swing.JFrame {
             }
         });
 
-        panelInicio.setBackground(new java.awt.Color(18, 17, 17));
+        panelInicio.setBackground(new java.awt.Color(23, 23, 23));
         panelInicio.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 panelInicioFocusGained(evt);
@@ -222,16 +222,13 @@ public class FormCliente extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Inicio", panelInicio);
 
-        jPanel4.setBackground(new java.awt.Color(18, 17, 17));
+        jPanel4.setBackground(new java.awt.Color(23, 23, 23));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Background.png"))); // NOI18N
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Signatra DEMO", 0, 56)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Cliente");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 130, -1, -1));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -288,9 +285,10 @@ public class FormCliente extends javax.swing.JFrame {
         txtGenero.setEnabled(false);
         jPanel4.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 410, 180, -1));
 
+        jLabel11.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(204, 204, 204));
         jLabel11.setText("Desde enero del 2022");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, 120, -1));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 130, 130, -1));
 
         jLabel12.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -322,6 +320,11 @@ public class FormCliente extends javax.swing.JFrame {
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Cliente.png"))); // NOI18N
         jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 690));
 
+        jLabel24.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Datos generales del cliente");
+        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 190, -1, -1));
+
         jTabbedPane1.addTab("Perfil", jPanel4);
 
         panelReuniones.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -335,7 +338,7 @@ public class FormCliente extends javax.swing.JFrame {
             }
         });
 
-        jPanel5.setBackground(new java.awt.Color(18, 17, 17));
+        jPanel5.setBackground(new java.awt.Color(23, 23, 23));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelReunionesTabla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -396,7 +399,7 @@ public class FormCliente extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Reunion", panelReuniones);
 
-        jPanel7.setBackground(new java.awt.Color(18, 17, 17));
+        jPanel7.setBackground(new java.awt.Color(23, 23, 23));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setFont(new java.awt.Font("Runalto", 0, 36)); // NOI18N
@@ -621,8 +624,8 @@ public class FormCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
