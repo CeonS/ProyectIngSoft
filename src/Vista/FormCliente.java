@@ -167,6 +167,7 @@ public class FormCliente extends javax.swing.JFrame {
         tablaReuniones = new javax.swing.JTable();
         btnRechazar = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
         jlblNohayReu = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -179,13 +180,13 @@ public class FormCliente extends javax.swing.JFrame {
         txtpago = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         txtsector = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
         jTabbedPane1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTabbedPane1FocusGained(evt);
@@ -205,20 +206,19 @@ public class FormCliente extends javax.swing.JFrame {
         });
         panelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/NY.jpg"))); // NOI18N
-        panelInicio.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 490, 630));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/NY2.png"))); // NOI18N
+        panelInicio.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 490, 690));
 
-        jLabel2.setFont(new java.awt.Font("Bludhaven", 1, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Runalto", 0, 72)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("BIENVENIDO");
-        panelInicio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
+        panelInicio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/G2R.png"))); // NOI18N
-        panelInicio.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
+        panelInicio.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 380, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/texto.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        panelInicio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Texto3.png"))); // NOI18N
+        panelInicio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 470, 430));
 
         jTabbedPane1.addTab("Inicio", panelInicio);
 
@@ -226,100 +226,101 @@ public class FormCliente extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Background.png"))); // NOI18N
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Signatra DEMO", 0, 48)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Signatra DEMO", 0, 56)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Cliente");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, -1, -1));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 130, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nombres");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, -1, -1));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Apellidos");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, -1, -1));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("DNI");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, -1, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Correo");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, -1, -1));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Género");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, -1, -1));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 410, -1, -1));
 
-        txtNombres.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNombres.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtNombres.setEnabled(false);
         txtNombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombresActionPerformed(evt);
             }
         });
-        jPanel4.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 190, 180, -1));
+        jPanel4.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 250, 180, -1));
 
-        txtApellidos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtApellidos.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtApellidos.setEnabled(false);
         txtApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidosActionPerformed(evt);
             }
         });
-        jPanel4.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, 180, -1));
+        jPanel4.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, 180, -1));
 
-        txtDNI.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtDNI.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtDNI.setEnabled(false);
-        jPanel4.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, 180, -1));
+        jPanel4.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, 180, -1));
 
-        txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtCorreo.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtCorreo.setEnabled(false);
-        jPanel4.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, 180, -1));
+        jPanel4.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 370, 180, -1));
 
-        txtGenero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtGenero.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtGenero.setEnabled(false);
-        jPanel4.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 350, 180, -1));
+        jPanel4.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 410, 180, -1));
 
         jLabel11.setForeground(new java.awt.Color(204, 204, 204));
         jLabel11.setText("Desde enero del 2022");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 120, -1));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, 120, -1));
 
         jLabel12.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Teléfono");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, -1, -1));
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, -1, -1));
 
-        txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTelefono.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtTelefono.setEnabled(false);
-        jPanel4.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 430, 180, -1));
+        jPanel4.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, 180, -1));
 
         jLabel13.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Dirección");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, -1, -1));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, -1, -1));
 
-        txtDireccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtDireccion.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtDireccion.setEnabled(false);
-        jPanel4.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 390, 180, -1));
+        jPanel4.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 450, 180, -1));
 
+        btnCerrarSesion.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnCerrarSesion.setText("CERRAR SESIÓN");
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel4.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 140, 50));
+        jPanel4.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 570, 140, 50));
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/NY.jpg"))); // NOI18N
-        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -440, -1, -1));
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Cliente.png"))); // NOI18N
+        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 690));
 
         jTabbedPane1.addTab("Perfil", jPanel4);
 
@@ -335,6 +336,9 @@ public class FormCliente extends javax.swing.JFrame {
         });
 
         jPanel5.setBackground(new java.awt.Color(18, 17, 17));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelReunionesTabla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaReuniones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -349,72 +353,35 @@ public class FormCliente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaReuniones);
 
+        panelReunionesTabla.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 17, 1086, 240));
+
+        btnRechazar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnRechazar.setText("CANCELAR");
         btnRechazar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRechazarActionPerformed(evt);
             }
         });
+        panelReunionesTabla.add(btnRechazar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 150, 30));
 
+        btnAceptar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnAceptar.setText("ACEPTAR");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
             }
         });
+        panelReunionesTabla.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 150, 30));
 
-        javax.swing.GroupLayout panelReunionesTablaLayout = new javax.swing.GroupLayout(panelReunionesTabla);
-        panelReunionesTabla.setLayout(panelReunionesTablaLayout);
-        panelReunionesTablaLayout.setHorizontalGroup(
-            panelReunionesTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelReunionesTablaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelReunionesTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(panelReunionesTablaLayout.createSequentialGroup()
-                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRechazar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        panelReunionesTablaLayout.setVerticalGroup(
-            panelReunionesTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelReunionesTablaLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelReunionesTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRechazar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
-        );
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Tabla.png"))); // NOI18N
+        panelReunionesTabla.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, 1100, 680));
 
-        jlblNohayReu.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        jPanel5.add(panelReunionesTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 93, 1098, 570));
+
+        jlblNohayReu.setFont(new java.awt.Font("Runalto", 0, 24)); // NOI18N
         jlblNohayReu.setForeground(new java.awt.Color(255, 255, 255));
-        jlblNohayReu.setText("NO SE ENCUENTRAN REUNIONES A TU NOMBRE, VUELVE LUEGO!");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelReunionesTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(208, Short.MAX_VALUE)
-                .addComponent(jlblNohayReu, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jlblNohayReu, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(panelReunionesTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(190, Short.MAX_VALUE))
-        );
+        jlblNohayReu.setText("No se encuentran reuniones a su nombre, vuelva luego. ");
+        jPanel5.add(jlblNohayReu, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 716, 43));
 
         javax.swing.GroupLayout panelReunionesLayout = new javax.swing.GroupLayout(panelReuniones);
         panelReuniones.setLayout(panelReunionesLayout);
@@ -430,112 +397,73 @@ public class FormCliente extends javax.swing.JFrame {
         jTabbedPane1.addTab("Reunion", panelReuniones);
 
         jPanel7.setBackground(new java.awt.Color(18, 17, 17));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel14.setFont(new java.awt.Font("Hack Nerd Font", 1, 24)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Runalto", 0, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("ESTADO DE LA VISITA TÉCNICA");
+        jLabel14.setText("Estado de visita técnica");
+        jPanel7.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, -1, -1));
 
-        jLabel15.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Técnico asignado");
+        jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, -1, -1));
 
-        jLabel16.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Fecha de visita");
+        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
 
+        txttecnico.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txttecnico.setEnabled(false);
         txttecnico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txttecnicoActionPerformed(evt);
             }
         });
+        jPanel7.add(txttecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(886, 208, 163, -1));
 
+        txtfecha.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtfecha.setEnabled(false);
         txtfecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtfechaActionPerformed(evt);
             }
         });
+        jPanel7.add(txtfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(886, 291, 163, -1));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Financing Strategy.png"))); // NOI18N
+        jPanel7.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 390, -1, -1));
 
-        jLabel17.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Monto a pagar");
+        jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, -1, -1));
 
+        txtpago.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtpago.setEnabled(false);
         txtpago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpagoActionPerformed(evt);
             }
         });
+        jPanel7.add(txtpago, new org.netbeans.lib.awtextra.AbsoluteConstraints(886, 331, 163, -1));
 
-        jLabel19.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Sector");
+        jPanel7.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, -1, -1));
 
+        txtsector.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtsector.setEnabled(false);
+        jPanel7.add(txtsector, new org.netbeans.lib.awtextra.AbsoluteConstraints(886, 251, 163, -1));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(604, 604, 604)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel19))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtfecha)
-                                .addComponent(txttecnico)
-                                .addComponent(txtsector, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtpago, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(61, 61, 61))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel18)
-                .addGap(105, 105, 105))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel19)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel16)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel17))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(txttecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(txtsector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtpago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
-                .addComponent(jLabel18)
-                .addGap(47, 47, 47))
-        );
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Meet.png"))); // NOI18N
+        jPanel7.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 690));
 
         jTabbedPane1.addTab("Visita Técnica", jPanel7);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 680));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -545,7 +473,7 @@ public class FormCliente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
         );
 
         pack();
@@ -554,6 +482,56 @@ public class FormCliente extends javax.swing.JFrame {
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         RellenarPerfil();
     }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
+
+    }//GEN-LAST:event_jTabbedPane1FocusGained
+
+    private void txtpagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpagoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtpagoActionPerformed
+
+    private void txtfechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfechaActionPerformed
+
+    private void txttecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttecnicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttecnicoActionPerformed
+
+    private void panelReunionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelReunionesMouseClicked
+
+    }//GEN-LAST:event_panelReunionesMouseClicked
+
+    private void panelReunionesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelReunionesFocusGained
+
+    }//GEN-LAST:event_panelReunionesFocusGained
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        DBReunion r = new DBReunion();
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea confirmar la reunión?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (opcion == 0) {
+
+            String estado = "Aceptada";
+            r.ActualizarEstadoReunion(pcDB.connection2(), estado);
+            panelReunionesTabla.setVisible(false);
+            jlblNohayReu.setVisible(true);
+
+        }
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnRechazarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechazarActionPerformed
+        DBReunion r = new DBReunion();
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea rechazar la reunión?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (opcion == 0) {
+
+            String estado = "Inactiva";
+            r.ActualizarEstadoReunion(pcDB.connection2(), estado);
+            panelReunionesTabla.setVisible(false);
+            jlblNohayReu.setVisible(true);
+
+        }
+    }//GEN-LAST:event_btnRechazarActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         Login l = new Login();
@@ -569,60 +547,9 @@ public class FormCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombresActionPerformed
 
-    private void txtpagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpagoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtpagoActionPerformed
-
-    private void txtfechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfechaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtfechaActionPerformed
-
-    private void txttecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttecnicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txttecnicoActionPerformed
-
-    private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
-
-    }//GEN-LAST:event_jTabbedPane1FocusGained
-
-    private void panelReunionesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelReunionesFocusGained
-
-    }//GEN-LAST:event_panelReunionesFocusGained
-
-    private void panelReunionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelReunionesMouseClicked
-
-    }//GEN-LAST:event_panelReunionesMouseClicked
-
     private void panelInicioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panelInicioFocusGained
 
     }//GEN-LAST:event_panelInicioFocusGained
-
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        DBReunion r = new DBReunion();
-        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea confirmar la reunión?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
-        if (opcion == 0) {
-
-            String estado = "Aceptada";
-            r.ActualizarEstadoReunion(pcDB.connection2(), estado);
-            panelReunionesTabla.setVisible(false);
-            jlblNohayReu.setVisible(true);
-
-        }
-
-    }//GEN-LAST:event_btnAceptarActionPerformed
-
-    private void btnRechazarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechazarActionPerformed
-        DBReunion r = new DBReunion();
-        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea rechazar la reunión?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
-        if (opcion == 0) {
-
-            String estado = "Inactiva";
-            r.ActualizarEstadoReunion(pcDB.connection2(), estado);
-            panelReunionesTabla.setVisible(false);
-            jlblNohayReu.setVisible(true);
-
-        }
-    }//GEN-LAST:event_btnRechazarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -692,6 +619,8 @@ public class FormCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
