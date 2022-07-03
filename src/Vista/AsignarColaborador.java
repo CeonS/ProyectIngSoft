@@ -204,7 +204,7 @@ public class AsignarColaborador extends javax.swing.JFrame {
         getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(932, 756, 133, 44));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/write.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 840));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 830));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
