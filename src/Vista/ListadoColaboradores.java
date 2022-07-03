@@ -127,6 +127,7 @@ public class ListadoColaboradores extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaColaboradores.setModel(new javax.swing.table.DefaultTableModel(
@@ -147,7 +148,7 @@ public class ListadoColaboradores extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaColaboradores);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 1610, 360));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 1550, 360));
 
         btnActualizar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnActualizar.setText("ACTUALIZAR");
@@ -237,7 +238,7 @@ public class ListadoColaboradores extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Signatra DEMO", 1, 60)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Lista de colaboradores");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
         txtADescripcion.setColumns(20);
         txtADescripcion.setRows(5);
@@ -252,8 +253,7 @@ public class ListadoColaboradores extends javax.swing.JFrame {
         getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 720, 101, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondolista.png"))); // NOI18N
-        jLabel11.setText("jLabel11");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1763, 834));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1720, 834));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

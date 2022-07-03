@@ -81,12 +81,13 @@ public class ListadoProyectos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtZonaEjecucion = new javax.swing.JTextField();
         txtSector = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtnombre = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1763, 834));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaProyecto.setModel(new javax.swing.table.DefaultTableModel(
@@ -130,86 +131,79 @@ public class ListadoProyectos extends javax.swing.JFrame {
             tablaProyecto.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 1230, 250));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 1580, 340));
 
-        btnactualizar.setBackground(new java.awt.Color(204, 204, 204));
-        btnactualizar.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
-        btnactualizar.setForeground(new java.awt.Color(57, 73, 171));
+        btnactualizar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnactualizar.setText("ACTUALIZAR");
         btnactualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnactualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 500, 140, 30));
+        getContentPane().add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 620, 140, 50));
 
         DateCInicial.setDateFormatString("yyyy-MM-dd");
-        getContentPane().add(DateCInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 160, 30));
+        getContentPane().add(DateCInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, 180, 30));
 
         DateCFInal.setDateFormatString("yyyy-MM-dd");
-        getContentPane().add(DateCFInal, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, 160, 30));
+        getContentPane().add(DateCFInal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 620, 180, 30));
 
         txtAObservaciones.setColumns(20);
         txtAObservaciones.setRows(5);
         jScrollPane2.setViewportView(txtAObservaciones);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 350, 100));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 350, 100));
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 204));
-        jButton4.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(57, 73, 171));
+        jButton4.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jButton4.setText("SALIR");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 500, -1, 30));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 620, 140, 50));
 
-        jLabel8.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Observaciones");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, -1, 30));
-        getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 360, 160, 30));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 560, -1, 30));
+        getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 680, 180, 30));
 
-        jLabel7.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Estado");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 360, -1, 30));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 680, -1, 30));
 
-        jLabel5.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Zona Ejecucion");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, -1, 30));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, -1, 30));
 
-        jLabel3.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Fecha final");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 620, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fecha inicial");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
-        getContentPane().add(txtZonaEjecucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 160, 30));
-        getContentPane().add(txtSector, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 160, 30));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
+        getContentPane().add(txtZonaEjecucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, 160, 30));
+        getContentPane().add(txtSector, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 180, 30));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/support bw.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 20, 380, -1));
-
-        jLabel1.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Sector");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Hack Nerd Font", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Signatra DEMO", 1, 60)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("LISTA DE PROYECTOS");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 350, 60));
+        jLabel2.setText("Lista de proyectos");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 440, 60));
 
-        txtnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Marks.png"))); // NOI18N
-        txtnombre.setText("Proyecto");
-        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 540));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondolista.png"))); // NOI18N
+        fondo.setPreferredSize(new java.awt.Dimension(1763, 834));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1720, 834));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -354,13 +348,13 @@ public class ListadoProyectos extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser DateCFInal;
     private com.toedter.calendar.JDateChooser DateCInicial;
     private javax.swing.JButton btnactualizar;
+    private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
@@ -370,6 +364,5 @@ public class ListadoProyectos extends javax.swing.JFrame {
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtSector;
     private javax.swing.JTextField txtZonaEjecucion;
-    private javax.swing.JLabel txtnombre;
     // End of variables declaration//GEN-END:variables
 }

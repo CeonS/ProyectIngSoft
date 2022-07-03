@@ -141,7 +141,7 @@ public class ListadoClientes extends javax.swing.JFrame {
             tablaClientes.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 1510, 320));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 1510, 360));
         getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 700, 190, -1));
 
         jLabel5.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
@@ -218,11 +218,11 @@ public class ListadoClientes extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Signatra DEMO", 1, 60)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Lista de clientes");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 330, 60));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 330, 60));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondolista.png"))); // NOI18N
         fondo.setPreferredSize(new java.awt.Dimension(1763, 834));
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 1720, 830));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1720, 830));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
