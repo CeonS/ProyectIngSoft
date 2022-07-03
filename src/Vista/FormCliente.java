@@ -215,7 +215,7 @@ public class FormCliente extends javax.swing.JFrame {
         panelInicio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/G2R.png"))); // NOI18N
-        panelInicio.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 380, -1));
+        panelInicio.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 380, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Texto3.png"))); // NOI18N
         panelInicio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 470, 430));
@@ -228,32 +228,32 @@ public class FormCliente extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Signatra DEMO", 0, 56)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Cliente");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, -1, -1));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 60, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nombres");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, -1, -1));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Apellidos");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, -1, -1));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("DNI");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, -1, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Correo");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, -1, -1));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Género");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 410, -1, -1));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, -1, -1));
 
         txtNombres.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtNombres.setEnabled(false);
@@ -262,7 +262,7 @@ public class FormCliente extends javax.swing.JFrame {
                 txtNombresActionPerformed(evt);
             }
         });
-        jPanel4.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 250, 180, -1));
+        jPanel4.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 250, 180, -1));
 
         txtApellidos.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtApellidos.setEnabled(false);
@@ -271,42 +271,42 @@ public class FormCliente extends javax.swing.JFrame {
                 txtApellidosActionPerformed(evt);
             }
         });
-        jPanel4.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, 180, -1));
+        jPanel4.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 290, 180, -1));
 
         txtDNI.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtDNI.setEnabled(false);
-        jPanel4.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, 180, -1));
+        jPanel4.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 330, 180, -1));
 
         txtCorreo.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtCorreo.setEnabled(false);
-        jPanel4.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 370, 180, -1));
+        jPanel4.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, 180, -1));
 
         txtGenero.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtGenero.setEnabled(false);
-        jPanel4.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 410, 180, -1));
+        jPanel4.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, 180, -1));
 
         jLabel11.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(204, 204, 204));
         jLabel11.setText("Desde enero del 2022");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 130, 130, -1));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 130, 130, -1));
 
         jLabel12.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Teléfono");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, -1, -1));
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, -1, -1));
 
         txtTelefono.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtTelefono.setEnabled(false);
-        jPanel4.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, 180, -1));
+        jPanel4.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 490, 180, -1));
 
         jLabel13.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Dirección");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, -1, -1));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, -1, -1));
 
         txtDireccion.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtDireccion.setEnabled(false);
-        jPanel4.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 450, 180, -1));
+        jPanel4.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 450, 180, -1));
 
         btnCerrarSesion.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnCerrarSesion.setText("CERRAR SESIÓN");
@@ -315,7 +315,7 @@ public class FormCliente extends javax.swing.JFrame {
                 btnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel4.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 570, 140, 50));
+        jPanel4.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 570, 140, 50));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Cliente.png"))); // NOI18N
         jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 690));
@@ -323,7 +323,7 @@ public class FormCliente extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Datos generales del cliente");
-        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 190, -1, -1));
+        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, -1, -1));
 
         jTabbedPane1.addTab("Perfil", jPanel4);
 
@@ -384,7 +384,7 @@ public class FormCliente extends javax.swing.JFrame {
         jlblNohayReu.setFont(new java.awt.Font("Runalto", 0, 24)); // NOI18N
         jlblNohayReu.setForeground(new java.awt.Color(255, 255, 255));
         jlblNohayReu.setText("No se encuentran reuniones a su nombre, vuelva luego. ");
-        jPanel5.add(jlblNohayReu, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 716, 43));
+        jPanel5.add(jlblNohayReu, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 716, 43));
 
         javax.swing.GroupLayout panelReunionesLayout = new javax.swing.GroupLayout(panelReuniones);
         panelReuniones.setLayout(panelReunionesLayout);

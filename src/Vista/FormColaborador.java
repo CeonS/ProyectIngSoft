@@ -135,23 +135,24 @@ public class FormColaborador extends javax.swing.JFrame {
         });
 
         jPanel3.setBackground(new java.awt.Color(23, 23, 23));
-        jPanel3.setMinimumSize(new java.awt.Dimension(790, 420));
-        jPanel3.setPreferredSize(new java.awt.Dimension(790, 420));
+        jPanel3.setMinimumSize(new java.awt.Dimension(1110, 690));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1110, 690));
+        jPanel3.setVerifyInputWhenFocusTarget(false);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/NY2.png"))); // NOI18N
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, -10, 490, 710));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 490, 690));
 
         jLabel15.setFont(new java.awt.Font("Runalto", 0, 72)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("BIENVENIDO");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Texto3.png"))); // NOI18N
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 470, 430));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/G2R.png"))); // NOI18N
-        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 380, -1));
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 380, -1));
 
         jTabbedPane1.addTab("Inicio", jPanel3);
 
@@ -161,94 +162,103 @@ public class FormColaborador extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Signatra DEMO", 0, 56)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Colaborador");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 40, -1, -1));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 40, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nombres");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, -1, -1));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Apellidos");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, -1, -1));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("DNI");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, -1, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Zona Laboral");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 490, -1, -1));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Tipo Colaborador");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 530, -1, -1));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 530, -1, -1));
 
+        txtNombres.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtNombres.setEnabled(false);
-        jPanel4.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 210, 180, -1));
+        jPanel4.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 210, 180, -1));
 
+        txtApellidos.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtApellidos.setEnabled(false);
         txtApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidosActionPerformed(evt);
             }
         });
-        jPanel4.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 250, 180, -1));
+        jPanel4.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 250, 180, -1));
 
+        txtDNI.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtDNI.setEnabled(false);
-        jPanel4.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, 180, -1));
+        jPanel4.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 290, 180, -1));
 
+        txtZonaLaboral.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtZonaLaboral.setEnabled(false);
-        jPanel4.add(txtZonaLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, 180, -1));
+        jPanel4.add(txtZonaLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 490, 180, -1));
 
+        txtTipoColaborador.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtTipoColaborador.setEnabled(false);
-        jPanel4.add(txtTipoColaborador, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 530, 180, -1));
+        jPanel4.add(txtTipoColaborador, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 530, 180, -1));
 
         jLabel11.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Desde enero del 2022");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 100, 150, -1));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, 150, -1));
 
         jLabel12.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Género");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, -1, -1));
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, -1, -1));
 
+        txtGenero.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtGenero.setEnabled(false);
-        jPanel4.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 370, 180, -1));
+        jPanel4.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 370, 180, -1));
 
         jLabel13.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Datos generales del colaborador");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, -1, -1));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 150, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Dirección");
-        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 410, -1, -1));
+        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 410, -1, -1));
 
+        txtDireccion.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtDireccion.setEnabled(false);
-        jPanel4.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 410, 180, -1));
+        jPanel4.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 410, 180, -1));
 
         jLabel23.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Teléfono");
-        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 450, -1, -1));
+        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, -1, -1));
 
+        txtTelefono.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtTelefono.setEnabled(false);
-        jPanel4.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 450, 180, -1));
+        jPanel4.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 450, 180, -1));
 
         jLabel24.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Correo");
-        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, -1, -1));
+        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, -1, -1));
 
+        txtCorreo.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         txtCorreo.setEnabled(false);
-        jPanel4.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, 180, -1));
+        jPanel4.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 330, 180, -1));
 
         btnCerrarSesion.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnCerrarSesion.setText("CERRAR SESIÓN");
@@ -267,13 +277,13 @@ public class FormColaborador extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(23, 23, 23));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnvisualizarproyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/visualizacion.png"))); // NOI18N
+        btnvisualizarproyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/gestionproyecto.png"))); // NOI18N
         btnvisualizarproyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnvisualizarproyectoActionPerformed(evt);
             }
         });
-        jPanel6.add(btnvisualizarproyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 140, -1));
+        jPanel6.add(btnvisualizarproyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, 140, -1));
 
         jLabel16.setFont(new java.awt.Font("Signatra DEMO", 1, 60)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
@@ -281,23 +291,23 @@ public class FormColaborador extends javax.swing.JFrame {
         jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 180, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Proyecto.png"))); // NOI18N
-        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 680));
+        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 690));
 
         jTabbedPane1.addTab("Proyecto", jPanel6);
 
         jPanel7.setBackground(new java.awt.Color(23, 23, 23));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnvisualizarvisitatecnica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/visualizacion.png"))); // NOI18N
+        btnvisualizarvisitatecnica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/visitatecnica2.png"))); // NOI18N
         btnvisualizarvisitatecnica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnvisualizarvisitatecnicaActionPerformed(evt);
             }
         });
-        jPanel7.add(btnvisualizarvisitatecnica, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 140, -1));
+        jPanel7.add(btnvisualizarvisitatecnica, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, 140, -1));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mantenimiento.png"))); // NOI18N
-        jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 680));
+        jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 690));
 
         jLabel18.setFont(new java.awt.Font("Signatra DEMO", 1, 60)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
@@ -309,16 +319,16 @@ public class FormColaborador extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(23, 23, 23));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnvisualizarclientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/comentarios.png"))); // NOI18N
+        btnvisualizarclientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/clientes.png"))); // NOI18N
         btnvisualizarclientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnvisualizarclientesActionPerformed(evt);
             }
         });
-        jPanel2.add(btnvisualizarclientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 143, -1));
+        jPanel2.add(btnvisualizarclientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, 143, -1));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ClienteA.png"))); // NOI18N
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 680));
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 690));
 
         jLabel27.setFont(new java.awt.Font("Signatra DEMO", 1, 60)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
@@ -327,13 +337,13 @@ public class FormColaborador extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Clientes", jPanel2);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1110, 720));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
