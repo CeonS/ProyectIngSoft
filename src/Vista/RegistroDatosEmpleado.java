@@ -50,7 +50,6 @@ DBNivelParametros np = new DBNivelParametros();
         txtnombre = new javax.swing.JTextField();
         txtapellido = new javax.swing.JTextField();
         txtdni = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         btnenviar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -65,6 +64,7 @@ DBNivelParametros np = new DBNivelParametros();
         jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1256, 850));
 
         jPanel1.setBackground(new java.awt.Color(57, 85, 177));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,9 +99,6 @@ DBNivelParametros np = new DBNivelParametros();
         jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 180, 170, -1));
         jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 170, -1));
         jPanel1.add(txtdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 260, 170, -1));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group.png"))); // NOI18N
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 170, 160));
 
         jLabel9.setFont(new java.awt.Font("Hack Nerd Font", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(204, 204, 204));
@@ -266,7 +263,6 @@ DBNivelParametros np = new DBNivelParametros();
     private javax.swing.JButton btnenviar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

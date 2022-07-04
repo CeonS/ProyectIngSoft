@@ -36,6 +36,7 @@ public class RegistrarCuenta extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1256, 850));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(0, 102, 153));
