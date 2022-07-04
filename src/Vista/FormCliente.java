@@ -365,7 +365,7 @@ public class FormCliente extends javax.swing.JFrame {
                 btnRechazarActionPerformed(evt);
             }
         });
-        panelReunionesTabla.add(btnRechazar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 150, 30));
+        panelReunionesTabla.add(btnRechazar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 270, 160, 60));
 
         btnAceptar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnAceptar.setText("ACEPTAR");
@@ -374,7 +374,7 @@ public class FormCliente extends javax.swing.JFrame {
                 btnAceptarActionPerformed(evt);
             }
         });
-        panelReunionesTabla.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 150, 30));
+        panelReunionesTabla.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 160, 60));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Tabla.png"))); // NOI18N
         panelReunionesTabla.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, 1100, 680));

@@ -66,107 +66,117 @@ DBNivelParametros np = new DBNivelParametros();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1256, 850));
 
-        jPanel1.setBackground(new java.awt.Color(57, 85, 177));
+        jPanel1.setBackground(new java.awt.Color(23, 23, 23));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Work.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 480, 400));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/register2.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 850));
 
-        jLabel2.setFont(new java.awt.Font("Hack Nerd Font", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Signatra DEMO", 1, 72)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("REGISTRA TUS DATOS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 420, 110));
+        jLabel2.setText("Registra tus datos");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 420, 110));
 
-        jLabel3.setFont(new java.awt.Font("Hack Nerd Font", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombres");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 340, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Hack Nerd Font", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Apellidos");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Hack Nerd Font", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Género");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 540, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Hack Nerd Font", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("DNI");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, -1, -1));
-        jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 180, 170, -1));
-        jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 170, -1));
-        jPanel1.add(txtdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 260, 170, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Hack Nerd Font", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        txtnombre.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 340, 240, -1));
+
+        txtapellido.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 380, 240, -1));
+
+        txtdni.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        jPanel1.add(txtdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 420, 240, -1));
+
+        jLabel9.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(153, 153, 153));
         jLabel9.setText("Rellene sus datos correctamente.");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 290, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 260, 290, -1));
 
-        btnenviar.setBackground(new java.awt.Color(204, 204, 204));
-        btnenviar.setFont(new java.awt.Font("Hack Nerd Font", 0, 12)); // NOI18N
-        btnenviar.setForeground(new java.awt.Color(57, 73, 171));
+        btnenviar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnenviar.setText("ENVIAR");
         btnenviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnenviarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnenviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, -1));
+        jPanel1.add(btnenviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 730, 140, 50));
 
-        jLabel8.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Dirección");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 460, -1, -1));
 
+        rbtnmasculino.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        rbtnmasculino.setForeground(new java.awt.Color(255, 255, 255));
         rbtnmasculino.setText("Masculino");
         rbtnmasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnmasculinoActionPerformed(evt);
             }
         });
-        jPanel1.add(rbtnmasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 380, -1, -1));
+        jPanel1.add(rbtnmasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 540, -1, -1));
 
+        rbtnfemenino.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        rbtnfemenino.setForeground(new java.awt.Color(255, 255, 255));
         rbtnfemenino.setText("Femenino");
         rbtnfemenino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnfemeninoActionPerformed(evt);
             }
         });
-        jPanel1.add(rbtnfemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, -1, -1));
-        jPanel1.add(txtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 170, -1));
+        jPanel1.add(rbtnfemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 540, -1, -1));
 
-        btnVolver.setBackground(new java.awt.Color(204, 204, 204));
-        btnVolver.setFont(new java.awt.Font("Hack Nerd Font", 1, 12)); // NOI18N
-        btnVolver.setForeground(new java.awt.Color(57, 73, 171));
+        txtelefono.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        jPanel1.add(txtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 500, 240, -1));
+
+        btnVolver.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnVolver.setText("VOLVER");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, -1, -1));
-        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 170, -1));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 730, 140, 50));
 
-        jLabel11.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        txtDireccion.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 460, 240, -1));
+
+        jLabel11.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Teléfono");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 500, -1, -1));
         jPanel1.add(lblusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 30, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1285, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

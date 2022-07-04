@@ -64,7 +64,7 @@ RegistrarCuenta rc = new RegistrarCuenta();
         jLabel2.setFont(new java.awt.Font("Signatra DEMO", 1, 72)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Registro de datos colaborador");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 670, 110));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 670, 110));
 
         jLabel3.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -118,10 +118,10 @@ RegistrarCuenta rc = new RegistrarCuenta();
         txtdni.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jPanel1.add(txtdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 420, 240, -1));
 
-        jLabel9.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel9.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(153, 153, 153));
         jLabel9.setText("Rellene sus datos correctamente.");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 280, 230, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 260, 300, -1));
 
         btnenviar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnenviar.setText("ENVIAR");
@@ -195,7 +195,7 @@ RegistrarCuenta rc = new RegistrarCuenta();
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
