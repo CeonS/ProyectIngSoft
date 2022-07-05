@@ -63,18 +63,15 @@ public class Login extends javax.swing.JFrame {
 
         jPanelFondo = new javax.swing.JPanel();
         jLabelG2R = new javax.swing.JLabel();
-        jLabelicon = new javax.swing.JLabel();
         jLabelFondoColor = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtusuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         btnregistrar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         btnregistrocolaborador = new javax.swing.JButton();
         btningresocolaborador1 = new javax.swing.JButton();
-        jLabelicon2 = new javax.swing.JLabel();
         btningresar1 = new javax.swing.JButton();
         jlblOcultar = new javax.swing.JLabel();
         jlblVer = new javax.swing.JLabel();
@@ -90,18 +87,14 @@ public class Login extends javax.swing.JFrame {
         jLabelG2R.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabelG2R.setForeground(new java.awt.Color(255, 255, 255));
         jLabelG2R.setText(" G2R");
-        jPanelFondo.add(jLabelG2R, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+        jPanelFondo.add(jLabelG2R, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 50, 30));
 
-        jLabelicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/torus.png"))); // NOI18N
-        jPanelFondo.add(jLabelicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 180, 220, -1));
+        jLabelFondoColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/login.png"))); // NOI18N
+        jPanelFondo.add(jLabelFondoColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 780));
 
-        jLabelFondoColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Back_color.jpg"))); // NOI18N
-        jPanelFondo.add(jLabelFondoColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 0, 640, 620));
-
-        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 153));
+        jLabel1.setFont(new java.awt.Font("Signatra DEMO", 1, 72)); // NOI18N
         jLabel1.setText("Bienvenido");
-        jPanelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 90, -1, -1));
+        jPanelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 90, -1, -1));
 
         txtusuario.setForeground(new java.awt.Color(153, 153, 153));
         txtusuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -111,24 +104,17 @@ public class Login extends javax.swing.JFrame {
                 txtusuarioActionPerformed(evt);
             }
         });
-        jPanelFondo.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, 250, 30));
+        jPanelFondo.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 260, 250, 30));
 
         jLabel2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Usuario");
-        jPanelFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, -1, -1));
+        jPanelFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Contraseña");
-        jPanelFondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 230, -1, 20));
+        jPanelFondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, -1, 20));
 
-        jLabel4.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 102, 255));
-        jLabel4.setText("¿Olvidaste la contraseña?");
-        jPanelFondo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, -1, 20));
-
-        btnregistrar.setBackground(new java.awt.Color(57, 73, 171));
+        btnregistrar.setBackground(new java.awt.Color(0, 0, 0));
         btnregistrar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnregistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnregistrar.setText("Registrar");
@@ -138,16 +124,15 @@ public class Login extends javax.swing.JFrame {
                 btnregistrarActionPerformed(evt);
             }
         });
-        jPanelFondo.add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, 250, 30));
+        jPanelFondo.add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 460, 250, 30));
 
         jLabel5.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("¿Eres colaborador de la empresa?");
-        jPanelFondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, -1, -1));
+        jPanelFondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 510, -1, -1));
 
         btnregistrocolaborador.setBackground(new java.awt.Color(204, 204, 204));
-        btnregistrocolaborador.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        btnregistrocolaborador.setForeground(new java.awt.Color(57, 73, 171));
+        btnregistrocolaborador.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnregistrocolaborador.setText("Registrar");
         btnregistrocolaborador.setBorder(null);
         btnregistrocolaborador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -157,11 +142,10 @@ public class Login extends javax.swing.JFrame {
                 btnregistrocolaboradorActionPerformed(evt);
             }
         });
-        jPanelFondo.add(btnregistrocolaborador, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, 250, 30));
+        jPanelFondo.add(btnregistrocolaborador, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 590, 250, 30));
 
         btningresocolaborador1.setBackground(new java.awt.Color(204, 204, 204));
-        btningresocolaborador1.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        btningresocolaborador1.setForeground(new java.awt.Color(57, 73, 171));
+        btningresocolaborador1.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btningresocolaborador1.setText("Ingresar");
         btningresocolaborador1.setBorder(null);
         btningresocolaborador1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -171,13 +155,9 @@ public class Login extends javax.swing.JFrame {
                 btningresocolaborador1ActionPerformed(evt);
             }
         });
-        jPanelFondo.add(btningresocolaborador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 470, 250, 30));
+        jPanelFondo.add(btningresocolaborador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 540, 250, 30));
 
-        jLabelicon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Torus2.png"))); // NOI18N
-        jLabelicon2.setText("jLabel6");
-        jPanelFondo.add(jLabelicon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 560, 340, 310));
-
-        btningresar1.setBackground(new java.awt.Color(57, 73, 171));
+        btningresar1.setBackground(new java.awt.Color(0, 0, 0));
         btningresar1.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btningresar1.setForeground(new java.awt.Color(255, 255, 255));
         btningresar1.setText("Ingresar");
@@ -187,7 +167,7 @@ public class Login extends javax.swing.JFrame {
                 btningresar1ActionPerformed(evt);
             }
         });
-        jPanelFondo.add(btningresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 250, 30));
+        jPanelFondo.add(btningresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 410, 250, 30));
 
         jlblOcultar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -204,9 +184,9 @@ public class Login extends javax.swing.JFrame {
         jPanelFondo.add(jlblVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 250, 50, 50));
 
         txtcontraseña.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanelFondo.add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 250, 30));
+        jPanelFondo.add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 330, 250, 30));
 
-        getContentPane().add(jPanelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 620));
+        getContentPane().add(jPanelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 780));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -360,12 +340,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelFondoColor;
     private javax.swing.JLabel jLabelG2R;
-    private javax.swing.JLabel jLabelicon;
-    private javax.swing.JLabel jLabelicon2;
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JLabel jlblOcultar;
     private javax.swing.JLabel jlblVer;

@@ -119,7 +119,6 @@ public class RegistrarProyectos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -130,6 +129,8 @@ public class RegistrarProyectos extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(23, 23, 23));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -140,16 +141,16 @@ public class RegistrarProyectos extends javax.swing.JFrame {
                 txtZonaEjecucionActionPerformed(evt);
             }
         });
-        jPanel1.add(txtZonaEjecucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 160, 30));
+        jPanel1.add(txtZonaEjecucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 160, 30));
 
         cbxSector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cbxSector, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 160, 30));
+        jPanel1.add(cbxSector, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 160, 30));
 
         txtAObservaciones.setColumns(20);
         txtAObservaciones.setRows(5);
         jScrollPane1.setViewportView(txtAObservaciones);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 540, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 540, -1));
 
         jScrollPane2.setPreferredSize(new java.awt.Dimension(1000, 100));
 
@@ -168,63 +169,60 @@ public class RegistrarProyectos extends javax.swing.JFrame {
 
         panelTabla.add(jScrollPane2);
 
-        jPanel1.add(panelTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 1010, 120));
+        jPanel1.add(panelTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 1010, 120));
 
-        btnRegistrar.setFont(new java.awt.Font("Hack Nerd Font", 0, 12)); // NOI18N
+        btnRegistrar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnRegistrar.setText("REGISTRAR");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, -1, 30));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 600, 140, 50));
 
-        btnSalir.setFont(new java.awt.Font("Hack Nerd Font", 1, 12)); // NOI18N
+        btnSalir.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, -1, 30));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 600, 140, 50));
 
-        jLabel4.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Observaciones");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Zona Ejecución");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Fecha Final");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, -1));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/blogging bw.png"))); // NOI18N
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 700, 430));
-
-        jLabel6.setFont(new java.awt.Font("Hack Nerd Font", 1, 36)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Signatra DEMO", 1, 72)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("REGISTRO DE PROYECTOS");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 490, 70));
+        jLabel6.setText("Registro de proyectos");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 490, 70));
 
-        jLabel7.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Fecha Inicial");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Sector");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Reunion");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
         txtReunion.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -241,18 +239,19 @@ public class RegistrarProyectos extends javax.swing.JFrame {
                 txtReunionKeyReleased(evt);
             }
         });
-        jPanel1.add(txtReunion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 160, 30));
+        jPanel1.add(txtReunion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 160, 30));
 
         DateCFinal.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(DateCFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 160, 30));
+        jPanel1.add(DateCFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 160, 30));
 
         DateCInicial.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(DateCInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 160, 30));
+        jPanel1.add(DateCInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 160, 30));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/6.jpg"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 560));
+        jLabel8.setBackground(new java.awt.Color(23, 23, 23));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/registros.png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 740));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 560));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -484,7 +483,6 @@ public class RegistrarProyectos extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> cbxSector;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

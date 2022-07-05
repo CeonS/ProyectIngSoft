@@ -71,7 +71,6 @@ public class RegistrarVisitaTecnica extends javax.swing.JFrame {
         tablaProyecto = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -102,46 +101,43 @@ public class RegistrarVisitaTecnica extends javax.swing.JFrame {
 
         panelTabla.add(jScrollPane2);
 
-        jPanel1.add(panelTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 1010, 120));
+        jPanel1.add(panelTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 1010, 120));
 
-        jButton2.setFont(new java.awt.Font("Hack Nerd Font", 1, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jButton2.setText("SALIR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, 140, 50));
 
-        btnRegistrar.setFont(new java.awt.Font("Hack Nerd Font", 0, 12)); // NOI18N
+        btnRegistrar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnRegistrar.setText("REGISTRAR");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, 30));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, 140, 50));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/blogging bw.png"))); // NOI18N
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 500, 430));
-
-        jLabel6.setFont(new java.awt.Font("Hack Nerd Font", 1, 36)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Signatra DEMO", 1, 72)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("REGISTRO DE VISITA TÉCNICA");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 630, 70));
+        jLabel6.setText("Registro de visitas tecnicas");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 630, 70));
 
-        jLabel7.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Proyecto");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Fecha");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, 30));
 
         DateCFecha.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(DateCFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 160, -1));
+        jPanel1.add(DateCFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 190, -1));
 
         txtProyecto.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -158,12 +154,12 @@ public class RegistrarVisitaTecnica extends javax.swing.JFrame {
                 txtProyectoKeyReleased(evt);
             }
         });
-        jPanel1.add(txtProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 190, -1));
+        jPanel1.add(txtProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 190, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/6.jpg"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1490, 360));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/registros.png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 740));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 510));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -296,7 +292,6 @@ public class RegistrarVisitaTecnica extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser DateCFecha;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

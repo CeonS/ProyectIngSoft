@@ -32,77 +32,69 @@ public class RegistrarCuenta extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setBackground(new java.awt.Color(23, 23, 23));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(0, 102, 153));
-        jLabel2.setFont(new java.awt.Font("Hack Nerd Font", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Signatra DEMO", 1, 60)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("REGISTRAR CUENTA");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, 30));
+        jLabel2.setText("Registra tu cuenta");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, -1, 60));
 
-        jLabel1.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuario");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 230, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Correo");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Contraseña");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 330, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Confirmar Contraseña");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
-        jPanel1.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 200, -1));
-        jPanel1.add(txtcorreoempleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 200, -1));
-        jPanel1.add(txtcontraseñaempleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 200, -1));
-        jPanel1.add(txtconfirmarcontraseñaempleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 200, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, -1, -1));
+        jPanel1.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 230, 200, -1));
+        jPanel1.add(txtcorreoempleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 280, 200, -1));
+        jPanel1.add(txtcontraseñaempleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 330, 200, -1));
+        jPanel1.add(txtconfirmarcontraseñaempleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 380, 200, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sign Up.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 300, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 580, 260, -1));
 
-        btnSalir.setBackground(new java.awt.Color(204, 204, 204));
-        btnSalir.setFont(new java.awt.Font("Hack Nerd Font", 1, 12)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(0, 102, 153));
-        btnSalir.setText("Salir");
+        btnSalir.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 480, 140, 50));
 
-        btnRegistrar.setBackground(new java.awt.Color(204, 204, 204));
-        btnRegistrar.setFont(new java.awt.Font("Hack Nerd Font", 1, 12)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(0, 102, 153));
-        btnRegistrar.setText("Registrar");
+        btnRegistrar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        btnRegistrar.setText("REGISTRAR");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 480, 140, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 796, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/crear.png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 850));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1285, 850));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -188,6 +180,7 @@ public class RegistrarCuenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtconfirmarcontraseñaempleado;

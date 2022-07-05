@@ -58,11 +58,24 @@ public class ListadoVisitasTecnicas extends javax.swing.JFrame {
         tablaVisitaTecnica = new javax.swing.JTable();
         btnactualizar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        txtEstado = new javax.swing.JTextField();
-        DateCFecha = new com.toedter.calendar.JDateChooser();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        txtDniCliente = new javax.swing.JTextField();
+        txtEmpleado = new javax.swing.JTextField();
+        txtDniEmpleado = new javax.swing.JTextField();
+        txtProyecto = new javax.swing.JTextField();
+        txtServicio = new javax.swing.JTextField();
+        txtUbicacion = new javax.swing.JTextField();
+        txtCliente = new javax.swing.JTextField();
+        txtEstado = new javax.swing.JTextField();
+        DateCFecha = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JLabel();
 
@@ -71,28 +84,28 @@ public class ListadoVisitasTecnicas extends javax.swing.JFrame {
 
         tablaVisitaTecnica.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cliente", "Proyecto", "Servicio", "Dirección", "Técnico", "Fecha"
+                "Cliente", "Dni Cliente", "Empleado", "Dni Empleado", "Servicio", "Proyecto", "Ubicación", "Fecha", "Estado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -108,59 +121,93 @@ public class ListadoVisitasTecnicas extends javax.swing.JFrame {
         if (tablaVisitaTecnica.getColumnModel().getColumnCount() > 0) {
             tablaVisitaTecnica.getColumnModel().getColumn(0).setResizable(false);
             tablaVisitaTecnica.getColumnModel().getColumn(1).setResizable(false);
-            tablaVisitaTecnica.getColumnModel().getColumn(3).setResizable(false);
             tablaVisitaTecnica.getColumnModel().getColumn(5).setResizable(false);
+            tablaVisitaTecnica.getColumnModel().getColumn(8).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 910, 250));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 1450, 330));
 
-        btnactualizar.setBackground(new java.awt.Color(204, 204, 204));
-        btnactualizar.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
-        btnactualizar.setForeground(new java.awt.Color(57, 73, 171));
+        btnactualizar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnactualizar.setText("ACTUALIZAR");
         btnactualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnactualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 150, 30));
+        getContentPane().add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 620, 140, 50));
 
-        btnSalir.setBackground(new java.awt.Color(204, 204, 204));
-        btnSalir.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(57, 73, 171));
+        btnSalir.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 510, -1, 30));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1430, 620, 140, 50));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/support bw.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 390, -1));
-        getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 170, -1));
+        jLabel9.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Cliente");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, -1, -1));
 
-        DateCFecha.setDateFormatString("yyyy-MM-dd");
-        getContentPane().add(DateCFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 170, -1));
+        jLabel10.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("DNI Cliente");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Empleado");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 580, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("DNI Empleado");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 620, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Ubicación");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 620, -1, 20));
+
+        jLabel5.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Servicio");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 580, -1, 20));
+
+        jLabel1.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Proyecto");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, -1, 20));
+
+        jLabel8.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Fecha");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, -1, 20));
 
-        jLabel4.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Estado");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 690, -1, -1));
+        getContentPane().add(txtDniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 540, 220, -1));
+        getContentPane().add(txtEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 580, 220, -1));
+        getContentPane().add(txtDniEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 620, 220, -1));
+        getContentPane().add(txtProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 540, 220, -1));
+        getContentPane().add(txtServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 580, 220, -1));
+        getContentPane().add(txtUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 620, 220, -1));
+        getContentPane().add(txtCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 220, -1));
+        getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 690, 170, -1));
 
-        jLabel2.setFont(new java.awt.Font("Hack Nerd Font", 1, 24)); // NOI18N
+        DateCFecha.setDateFormatString("yyyy-MM-dd");
+        getContentPane().add(DateCFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, 130, -1));
+
+        jLabel2.setFont(new java.awt.Font("Signatra DEMO", 1, 60)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("LISTA DE VISITAS TÉCNICAS");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 360, 60));
+        jLabel2.setText("Lista de visitas tecnicas");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 470, 60));
 
-        txtnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Marks.png"))); // NOI18N
-        txtnombre.setText("Proyecto");
-        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 570));
+        txtnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondolista.png"))); // NOI18N
+        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1720, 830));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -287,13 +334,26 @@ public class ListadoVisitasTecnicas extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser DateCFecha;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnactualizar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaVisitaTecnica;
+    private javax.swing.JTextField txtCliente;
+    private javax.swing.JTextField txtDniCliente;
+    private javax.swing.JTextField txtDniEmpleado;
+    private javax.swing.JTextField txtEmpleado;
     private javax.swing.JTextField txtEstado;
+    private javax.swing.JTextField txtProyecto;
+    private javax.swing.JTextField txtServicio;
+    private javax.swing.JTextField txtUbicacion;
     private javax.swing.JLabel txtnombre;
     // End of variables declaration//GEN-END:variables
 }

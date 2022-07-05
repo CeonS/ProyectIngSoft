@@ -109,7 +109,7 @@ public class Pago extends javax.swing.JFrame {
         jPanel1.add(txtnumerocuotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, 100, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 4.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 590, 420));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 590, 430));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Rectangle 1.png"))); // NOI18N
         jLabel2.setPreferredSize(new java.awt.Dimension(980, 870));
