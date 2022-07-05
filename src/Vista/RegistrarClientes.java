@@ -44,7 +44,6 @@ public class RegistrarClientes extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -71,71 +70,68 @@ public class RegistrarClientes extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setFont(new java.awt.Font("Hack Nerd Font", 1, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jButton2.setText("SALIR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, -1, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 570, 140, 50));
 
-        btnRegistrar.setFont(new java.awt.Font("Hack Nerd Font", 0, 12)); // NOI18N
+        btnRegistrar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         btnRegistrar.setText("REGISTRAR");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, 30));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 570, 140, 50));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/blogging bw.png"))); // NOI18N
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 500, 430));
-
-        jLabel6.setFont(new java.awt.Font("Hack Nerd Font", 1, 36)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Signatra DEMO", 1, 72)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("REGISTRO DE CLIENTES");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 490, 70));
+        jLabel6.setText("Registro de clientes");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 490, 70));
 
-        jLabel7.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Apellidos");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombres");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Teléfono");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, 30));
 
-        jLabel11.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Correo");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 30));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, 30));
 
-        jLabel12.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Dirección");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, 30));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, 30));
 
-        jLabel13.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Género");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, 30));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, 30));
 
-        jLabel14.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("DNI");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 30));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, 30));
 
-        jLabel15.setFont(new java.awt.Font("Hack Nerd Font", 1, 22)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Bludhaven", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Tipo cliente");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, 30));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, -1, 30));
 
         cbxTipoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hogar", "Oficinas Administrativas", "Industrias", "MYPES" }));
         cbxTipoCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -143,64 +139,64 @@ public class RegistrarClientes extends javax.swing.JFrame {
                 cbxTipoClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(cbxTipoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 200, 30));
+        jPanel1.add(cbxTipoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 460, 100, 30));
 
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 190, -1));
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 220, -1));
 
         txtDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDNIActionPerformed(evt);
             }
         });
-        jPanel1.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 190, -1));
+        jPanel1.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 220, -1));
 
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 190, -1));
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 220, -1));
 
         txtDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDireccionActionPerformed(evt);
             }
         });
-        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 190, -1));
+        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 220, -1));
 
         txtApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidosActionPerformed(evt);
             }
         });
-        jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 190, -1));
+        jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 220, -1));
 
         txtNombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombresActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 190, -1));
+        jPanel1.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 220, -1));
 
-        rbtnmasculino.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
+        rbtnmasculino.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         rbtnmasculino.setForeground(new java.awt.Color(255, 255, 255));
         rbtnmasculino.setText("Masculino");
-        jPanel1.add(rbtnmasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, -1, -1));
+        jPanel1.add(rbtnmasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, -1, -1));
 
-        rbtnfemenino.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
+        rbtnfemenino.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         rbtnfemenino.setForeground(new java.awt.Color(255, 255, 255));
         rbtnfemenino.setText("Femenino");
-        jPanel1.add(rbtnfemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, -1));
+        jPanel1.add(rbtnfemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/6.jpg"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 510));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/registros.png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 740));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 510));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -324,7 +320,6 @@ public class RegistrarClientes extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxTipoCliente;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
