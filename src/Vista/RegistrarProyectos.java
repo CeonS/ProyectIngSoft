@@ -1,15 +1,26 @@
 package Vista;
 
 import Controlador.DBNivelParametros;
+import Controlador.DBPersona;
 import Controlador.DBProyecto;
 import Controlador.DBReunion;
 import Controlador.DBSector;
+import Controlador.DBServicio;
 import Controlador.Parametros;
 import Modelo.probarConexionDB;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Properties;
+import java.util.logging.Level;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -78,8 +89,8 @@ public class RegistrarProyectos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "error listar: " + e);
         }
     }
-    
-     private void llenarSectores() {
+
+    private void llenarSectores() {
 
         DBSector s = new DBSector();
         ArrayList<Parametros> listaServicios = s.getSectores(pcDB.connection2());
@@ -332,12 +343,100 @@ public class RegistrarProyectos extends javax.swing.JFrame {
         String fechaFinal = ((JTextField) DateCFinal.getDateEditor().getUiComponent()).getText();
         String zonaEjecucion = txtZonaEjecucion.getText();
         String observaciones = txtAObservaciones.getText();
-        
-        DBProyecto p = new DBProyecto();
+        String cliente = "";
+        DBProyecto pro = new DBProyecto();
+        DBPersona p = new DBPersona();
         DBReunion r = new DBReunion();
-        
-        p.AgregarProyecto(pcDB.connection2(), reunion, idParametro, Date.valueOf(fechaInicial), Date.valueOf(fechaFinal), zonaEjecucion, observaciones);
+
+        pro.AgregarProyecto(pcDB.connection2(), reunion, idParametro, Date.valueOf(fechaInicial), Date.valueOf(fechaFinal), zonaEjecucion, observaciones);
         r.ActualizarEstadoReunion(pcDB.connection2(), "Realizada", reunion);
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea registrar los datos del proyecto?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (opcion == 0) {
+
+            try {
+                Properties props = new Properties();
+                props.setProperty("mail.smtp.host", "smtp.gmail.com");
+                props.setProperty("mail.smtp.starttls.enable", "true");
+                props.setProperty("mail.smtp.port", "587");
+                props.setProperty("mail.smtp.auth", "true");
+
+                Session session = Session.getDefaultInstance(props);
+
+                try {
+
+                    String sql = "select * from reunion where idReunion =" + reunion;
+                    Statement st;
+                    st = pcDB.connection2().createStatement();
+                    ResultSet rs = st.executeQuery(sql);
+                    if (rs.next()) {
+
+                        cliente = rs.getString(8);
+                    }
+
+                } catch (Exception e) {
+                }
+
+                String correoRemitente = "ceon0508@gmail.com";
+                String passwordRemitente = "oynzouhkkijdjfho";
+                String correoReceptor = p.AsignarPersonaIdCliente(pcDB.connection2(), Integer.parseInt(cliente));
+                String asunto = "Datos Generales - Confirmación de reunión";
+
+                String sqlQuery = "select ls.Usuario, ls.contraseña from login_usuario ls inner join Usuario u on ls.Usuario = u.Usuario\n"
+                        + "inner join persona p on u.idPersonaUsuario = p.idPersona\n"
+                        + "inner join cliente c on p.idPersona = c.id_PersonaC\n"
+                        + "where c.idCliente = " + cliente;
+                int resultado = 0;
+                String[] datos = new String[2];
+
+                try {
+                    Statement st = pcDB.connection2().createStatement();
+                    ResultSet rs = st.executeQuery(sqlQuery);
+
+                    if (rs.next()) {
+                        resultado = 1;
+
+                        if (resultado == 1) {
+
+                            datos[0] = rs.getString("ls.Usuario");
+                            datos[1] = rs.getString("ls.Contraseña");
+
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Error de Acceso, Usuario No Registrado");
+                    }
+                    pcDB.connection2().close();
+                    st.close();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Error de Registro " + e.getMessage());
+                }
+
+              String mensaje = "Se ha registrado un proyecto a su nombre, ingrese a su cuenta brindada en el presente correo \n"
+                        + "para poder visualizar el presupuesto estimado para el proyecto, si está conforme acepte,\n"
+                        + "en caso contrario, no acepte y nos comunicaremos con usted.\n\n\n\n"
+                        + " Usuario: " + datos[0] + "\n"
+                        + " Contraseña:" + datos[1] + "";
+                MimeMessage message = new MimeMessage(session);
+                message.setFrom(new InternetAddress(correoRemitente));
+                message.addRecipient(Message.RecipientType.TO, new InternetAddress(correoReceptor));
+                message.setSubject(asunto);
+                message.setText(mensaje);
+                JOptionPane.showMessageDialog(null, "Espere... Se realizará el envío del correo al cliente asociado");
+                Transport t = session.getTransport("smtp");
+                t.connect(correoRemitente, passwordRemitente);
+                t.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
+                t.close();
+                JOptionPane.showMessageDialog(null, "Se le envío un correo al Cliente asociado a la reunión");
+
+            } catch (AddressException ex) {
+                java.util.logging.Logger.getLogger(RegistrarReuniones.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (MessagingException ex) {
+                java.util.logging.Logger.getLogger(RegistrarReuniones.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+
+        }
+
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**

@@ -301,38 +301,36 @@ public class ListadoClientes extends javax.swing.JFrame {
                 modelo.removeRow(i);
             }
 
-            String sql = "SELECT p.*,np.descripcionParametro, if(p.id_ParametroGenero=6,'Femenino','Masculino') as Genero FROM persona p"
+            String sql = "SELECT c.idCliente,p.*,np.descripcionParametro, if(p.id_ParametroGenero=6,'Femenino','Masculino') as Genero FROM persona p"
                     + " inner join cliente c on p.idPersona = c.id_PersonaC"
                     + " inner join nivelparametro np on c.id_ParametroTipo_Cliente = np.idParametro";
 
+            String datos[] = new String[10];
+            Statement st;
             try {
-                String datosM[] = new String[9];
-                Statement st2;
-                st2 = pcDB.connection2().createStatement();
-                ResultSet rs = st2.executeQuery(sql);
+                st = pcDB.connection2().createStatement();
+                ResultSet rs = st.executeQuery(sql);
                 while (rs.next()) {
-                    datosM[0] = rs.getString(3);
-                    datosM[1] = rs.getString(4);
-                    datosM[2] = rs.getString(5);
-                    datosM[3] = rs.getString(6);
-                    datosM[4] = rs.getString(7);
-                    datosM[5] = rs.getString(8);
-                    datosM[6] = rs.getString(9);
-                    datosM[7] = rs.getString(10);
-                    datosM[8] = rs.getString(11);
-                    modelo.addRow(datosM);
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(4);
+                    datos[2] = rs.getString(5);
+                    datos[3] = rs.getString(6);
+                    datos[4] = rs.getString(7);
+                    datos[5] = rs.getString(8);
+                    datos[6] = rs.getString(9);
+                    datos[7] = rs.getString(10);
+                    datos[8] = rs.getString(11);
+                    datos[9] = rs.getString(12);
+                    modelo.addRow(datos);
                 }
                 tablaClientes.setModel(modelo);
-                pcDB.connection2().close();
-                st2.close();
             } catch (Exception e) {
             }
-
         }
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-       FormEmpleado fe = new FormEmpleado();
+        FormEmpleado fe = new FormEmpleado();
         FormColaborador fc = new FormColaborador();
         if (fc.colaboradorForm == true) {
             fc.setVisible(true);

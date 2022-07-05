@@ -50,7 +50,8 @@ public class FormColaborador extends javax.swing.JFrame {
             String sql = "select p.idProyecto, p.id_Reunion_Proy ,p.fecha_Inicial_Proyecto, p.fecha_Final_Proyecto, p.zonaEjecucionProy, np.descripcionParametro,"
                     + " p.observacionesProy, p.estado_proyecto from proyecto p \n"
                     + "inner join nivelparametro np on p.id_Parametro_Sector_Proy = np.idParametro "
-                    + "inner join detallecolaborador dc on p.idProyecto = dc.id_Proyecto_DetalleColaboradores where dc.estadoDetalleColaborador = 'Pendiente'";
+                    + "inner join detallecolaborador dc on p.idProyecto = dc.id_Proyecto_DetalleColaboradores where dc.estadoDetalleColaborador = 'Pendiente'"
+                    + " and dc.id_ColaboradorDetalle = "+idColaborador;
 
             String datos[] = new String[8];
             Statement st;
@@ -489,7 +490,7 @@ public class FormColaborador extends javax.swing.JFrame {
 
     private void btnRechazarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechazarActionPerformed
 
-        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea rechazar la reunión?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea rechazar la participación en el proyecto?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
         if (opcion == 0) {
 
             String estado = "Inactivo";
@@ -503,10 +504,10 @@ public class FormColaborador extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
 
-        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea confirmar la reunión?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea confirmar la participación en el proyecto?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
         if (opcion == 0) {
 
-            String estado = "Activo";
+            String estado = "Aceptado";
             idColaborador = c.hallarIDColaboradorIdPersona(pcDB.connection2(), l.personaPerfil);
             dc.ActualizarEstadoDetalleColaborador(pcDB.connection2(), estado, idColaborador);
             panelProyectosTabla.setVisible(false);

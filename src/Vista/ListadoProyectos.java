@@ -2,13 +2,28 @@ package Vista;
 
 import Controlador.DBNivelParametros;
 import Modelo.probarConexionDB;
-import static Vista.ListadoReuniones.descripcionServicio;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.HeadlessException;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.sql.SQLException;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.PageSize;
+import java.io.IOException;
 
 public class ListadoProyectos extends javax.swing.JFrame {
 
@@ -20,6 +35,7 @@ public class ListadoProyectos extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     probarConexionDB pcDB = new probarConexionDB();
     public static String idProyecto, descripcionSector;
+    public static int filaSeleccionada;
 
     void mostrarTabla() {
 
@@ -72,6 +88,7 @@ public class ListadoProyectos extends javax.swing.JFrame {
         DateCFInal = new com.toedter.calendar.JDateChooser();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAObservaciones = new javax.swing.JTextArea();
+        btnReportePDF = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtEstado = new javax.swing.JTextField();
@@ -141,7 +158,7 @@ public class ListadoProyectos extends javax.swing.JFrame {
                 btnactualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 500, 140, 30));
+        getContentPane().add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 500, 140, 30));
 
         DateCInicial.setDateFormatString("yyyy-MM-dd");
         getContentPane().add(DateCInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 160, 30));
@@ -155,6 +172,14 @@ public class ListadoProyectos extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 350, 100));
 
+        btnReportePDF.setText("GENERAR REPORTE");
+        btnReportePDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportePDFActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReportePDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 350, 160, 40));
+
         jButton4.setBackground(new java.awt.Color(204, 204, 204));
         jButton4.setFont(new java.awt.Font("Hack Nerd Font", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(57, 73, 171));
@@ -164,7 +189,7 @@ public class ListadoProyectos extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 500, -1, 30));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 500, -1, 30));
 
         jLabel8.setFont(new java.awt.Font("Hack Nerd Font", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -286,7 +311,7 @@ public class ListadoProyectos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       FormEmpleado fe = new FormEmpleado();
+        FormEmpleado fe = new FormEmpleado();
         FormColaborador fc = new FormColaborador();
         if (fc.colaboradorForm == true) {
             fc.setVisible(true);
@@ -298,7 +323,7 @@ public class ListadoProyectos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void tablaProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaProyectoMouseClicked
-        int filaSeleccionada = tablaProyecto.rowAtPoint(evt.getPoint());
+        filaSeleccionada = tablaProyecto.rowAtPoint(evt.getPoint());
         txtSector.setText(tablaProyecto.getValueAt(filaSeleccionada, 1).toString());
         DateCInicial.setDate(java.sql.Date.valueOf(tablaProyecto.getModel().getValueAt(filaSeleccionada, 2).toString()));
         DateCFInal.setDate(java.sql.Date.valueOf(tablaProyecto.getModel().getValueAt(filaSeleccionada, 3).toString()));
@@ -309,6 +334,90 @@ public class ListadoProyectos extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_tablaProyectoMouseClicked
+
+    private void btnReportePDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportePDFActionPerformed
+
+        Document documento = new Document(PageSize.A4,60,60,50,50);
+        String validar = txtEstado.getText();
+        if (validar.equals("")) {
+            JOptionPane.showMessageDialog(null, "Seleccione un proyecto primero!");
+        } else {
+            try {
+                String ruta = System.getProperty("user.home");
+
+                PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Documents//ReportesG2R/Reporte_Proyecto 0" + idProyecto + ".pdf"));
+
+                Image header = Image.getInstance("src/img/G2RSolutions.jpg");
+                header.scaleToFit(500, 1000);
+                header.setAlignment(Chunk.ALIGN_CENTER);
+
+                Paragraph parrafo = new Paragraph();
+                parrafo.setAlignment(Paragraph.ALIGN_CENTER);
+
+                parrafo.setFont(FontFactory.getFont("Tahoma", 18, Font.BOLD, BaseColor.DARK_GRAY));
+                parrafo.add("\n\nREPORTE PROYECTO NRO. 0" + idProyecto + "\n\n");
+
+                Paragraph parrafoFinal = new Paragraph();
+                parrafoFinal.setAlignment(Paragraph.ALIGN_JUSTIFIED);
+                parrafo.setFont(FontFactory.getFont("Tahoma", 14, Font.BOLD, BaseColor.DARK_GRAY));
+                parrafoFinal.add("\n\nObservaciones: ");
+
+                documento.open();
+                documento.add(header);
+                documento.add(parrafo);
+
+                PdfPTable tabla = new PdfPTable(7);
+                tabla.addCell("ID Proyecto");
+                tabla.addCell("ID Reunión");
+                tabla.addCell("Fecha Inicial");
+                tabla.addCell("Fecha Final");
+                tabla.addCell("Zona Ejecución");
+                tabla.addCell("Sector");
+                tabla.addCell("Estado");
+
+                try {
+                    String sqlReporte = "select p.idProyecto, p.id_Reunion_Proy ,p.fecha_Inicial_Proyecto, p.fecha_Final_Proyecto, p.zonaEjecucionProy, np.descripcionParametro,\n"
+                            + "  p.estado_proyecto, p.observacionesProy from proyecto p \n"
+                            + " inner join nivelparametro np on p.id_Parametro_Sector_Proy = np.idParametro where p.idProyecto = " + idProyecto;
+                    PreparedStatement pst = pcDB.connection2().prepareStatement(sqlReporte);
+
+                    ResultSet rs = pst.executeQuery();
+                    if (rs.next()) {
+                        do {
+                            tabla.addCell(rs.getString(1));
+                            tabla.addCell(rs.getString(2));
+                            tabla.addCell(rs.getString(3));
+                            tabla.addCell(rs.getString(4));
+                            tabla.addCell(rs.getString(5));
+                            tabla.addCell(rs.getString(6));
+                            tabla.addCell(rs.getString(7));
+                            parrafoFinal.add(rs.getString(8));
+
+                        } while (rs.next());
+                        documento.add(tabla);
+                        documento.add(parrafoFinal);
+
+                    }
+
+                } catch (DocumentException | SQLException e) {
+                }
+                
+                try {
+                    
+                } catch (Exception e) {
+                }
+                documento.close();
+                JOptionPane.showMessageDialog(null, "Reporte del proyecto creado!!!");
+
+            } catch (DocumentException | HeadlessException | FileNotFoundException e) {
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Error en la imagen");
+            }
+
+        }
+
+
+    }//GEN-LAST:event_btnReportePDFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,6 +460,7 @@ public class ListadoProyectos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DateCFInal;
     private com.toedter.calendar.JDateChooser DateCInicial;
+    private javax.swing.JButton btnReportePDF;
     private javax.swing.JButton btnactualizar;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

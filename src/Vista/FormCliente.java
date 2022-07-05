@@ -15,13 +15,18 @@ public class FormCliente extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         panelReunionesTabla.setVisible(false);
         jlblNohayReu.setVisible(false);
-        AceptarReunion();
+        if (FormEmpleado.control != 1) {
+            AceptarReunion();
+            AceptarPresupuesto();
+        }
+
     }
 
     DefaultTableModel modelo = new DefaultTableModel();
     probarConexionDB pcDB = new probarConexionDB();
     Login l = new Login();
     public static int idReunion;
+    DBReunion r = new DBReunion();
 
     public void AceptarReunion() {
         r.ValidarAceptacionReunion(pcDB.connection2());
@@ -80,7 +85,36 @@ public class FormCliente extends javax.swing.JFrame {
         }
 
     }
-    DBReunion r = new DBReunion();
+
+    public void AceptarPresupuesto() {
+        r.ValidarAceptacionReunion(pcDB.connection2());
+        if (r.aceptarReunion == true) {
+            JOptionPane.showMessageDialog(null, "Tiene un presupuesto por confirmar! Dirijase al apartado de proyectos!");
+            jlblPresupuesto.setVisible(true);
+            jlblNohayProy.setVisible(false);
+
+            String sql = "select s.monto from proyecto p inner join reunion r on p.id_Reunion_Proy = r.idReunion"
+                    + "inner join servicio s on r.IdServicioReunion = s.IdServicio where p.estado_proyecto = 'Aceptado' "
+                    + "and r.idClienteReu = " + l.idCliente;
+
+            String dato = "";
+            Statement st;
+            try {
+                st = pcDB.connection2().createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                if (rs.next()) {
+                    dato = rs.getString(1);
+                }
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "error listar: " + e);
+            }
+        } else {
+            jlblNohayProy.setVisible(true);
+        }
+
+    }
+
     String datos[] = new String[7];
 
     public void RellenarPerfil() {
@@ -166,6 +200,13 @@ public class FormCliente extends javax.swing.JFrame {
         btnRechazar = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
         jlblNohayReu = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        panelReunionesTabla1 = new javax.swing.JPanel();
+        btnRechazar1 = new javax.swing.JButton();
+        btnAceptar1 = new javax.swing.JButton();
+        jlblPresupuesto = new javax.swing.JLabel();
+        jlblNohayProy = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -423,6 +464,95 @@ public class FormCliente extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Reunion", panelReuniones);
 
+        jPanel6.setBackground(new java.awt.Color(102, 102, 255));
+
+        btnRechazar1.setText("CANCELAR");
+        btnRechazar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRechazar1ActionPerformed(evt);
+            }
+        });
+
+        btnAceptar1.setText("ACEPTAR");
+        btnAceptar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptar1ActionPerformed(evt);
+            }
+        });
+
+        jlblPresupuesto.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+
+        javax.swing.GroupLayout panelReunionesTabla1Layout = new javax.swing.GroupLayout(panelReunionesTabla1);
+        panelReunionesTabla1.setLayout(panelReunionesTabla1Layout);
+        panelReunionesTabla1Layout.setHorizontalGroup(
+            panelReunionesTabla1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelReunionesTabla1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelReunionesTabla1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelReunionesTabla1Layout.createSequentialGroup()
+                        .addComponent(btnAceptar1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)
+                        .addComponent(btnRechazar1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelReunionesTabla1Layout.createSequentialGroup()
+                        .addComponent(jlblPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(147, 147, 147))))
+        );
+        panelReunionesTabla1Layout.setVerticalGroup(
+            panelReunionesTabla1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelReunionesTabla1Layout.createSequentialGroup()
+                .addContainerGap(96, Short.MAX_VALUE)
+                .addComponent(jlblPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addGroup(panelReunionesTabla1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRechazar1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAceptar1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
+        );
+
+        jlblNohayProy.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jlblNohayProy.setForeground(new java.awt.Color(255, 255, 255));
+        jlblNohayProy.setText("NO SE ENCUENTRAN PRESUPUESTOS POR ACEPTAR A TU NOMBRE, VUELVE LUEGO!");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jlblNohayProy, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(panelReunionesTabla1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(197, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jlblNohayProy, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(panelReunionesTabla1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Proyecto", jPanel2);
+
         jPanel7.setBackground(new java.awt.Color(0, 120, 158));
 
         jLabel14.setFont(new java.awt.Font("Hack Nerd Font", 1, 24)); // NOI18N
@@ -631,6 +761,14 @@ public class FormCliente extends javax.swing.JFrame {
         idReunion = Integer.parseInt(tablaReuniones.getValueAt(filaSeleccionada, 0).toString());
     }//GEN-LAST:event_tablaReunionesMouseClicked
 
+    private void btnRechazar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechazar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRechazar1ActionPerformed
+
+    private void btnAceptar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAceptar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -683,8 +821,10 @@ public class FormCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnAceptar1;
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnRechazar;
+    private javax.swing.JButton btnRechazar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -705,15 +845,20 @@ public class FormCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel jlblNohayProy;
     private javax.swing.JLabel jlblNohayReu;
+    private javax.swing.JLabel jlblPresupuesto;
     private javax.swing.JPanel panelInicio;
     private javax.swing.JPanel panelReuniones;
     private javax.swing.JPanel panelReunionesTabla;
+    private javax.swing.JPanel panelReunionesTabla1;
     private javax.swing.JTable tablaReuniones;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCorreo;
