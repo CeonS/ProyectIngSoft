@@ -311,12 +311,12 @@ public class ListadoProyectos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        FormEmpleado fe = new FormEmpleado();
-        FormColaborador fc = new FormColaborador();
-        if (fc.colaboradorForm == true) {
+         if (Login.colaboradorForm == true) {
+            FormColaborador fc = new FormColaborador();
             fc.setVisible(true);
             this.dispose();
         } else {
+            FormEmpleado fe = new FormEmpleado();
             fe.setVisible(true);
             this.dispose();
         }
@@ -337,7 +337,7 @@ public class ListadoProyectos extends javax.swing.JFrame {
 
     private void btnReportePDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportePDFActionPerformed
 
-        Document documento = new Document(PageSize.A4,60,60,50,50);
+        Document documento = new Document(PageSize.A4, 60, 60, 50, 50);
         String validar = txtEstado.getText();
         if (validar.equals("")) {
             JOptionPane.showMessageDialog(null, "Seleccione un proyecto primero!");
@@ -401,9 +401,9 @@ public class ListadoProyectos extends javax.swing.JFrame {
 
                 } catch (DocumentException | SQLException e) {
                 }
-                
+
                 try {
-                    
+
                 } catch (Exception e) {
                 }
                 documento.close();

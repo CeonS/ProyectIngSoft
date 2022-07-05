@@ -12,19 +12,19 @@ public class FormEmpleado extends javax.swing.JFrame {
     public FormEmpleado() {
         initComponents();
         this.setLocationRelativeTo(null);
-        control = 1;
+        control = 23;
     }
 
-        
-     public static int control;
+    
+     public static int control = 0, personaPerfil = Login.personaPerfil ;
      String datos [] = new String[9];
 
     public void RellenarPerfil() {
-        Login l = new Login();
+  
         probarConexionDB pcDB = new probarConexionDB();
         int resultado = 0;
         String SQL = "select * from persona p"
-                + " where p.idPersona = " + l.personaPerfil;
+                + " where p.idPersona = " + personaPerfil;
         try {
             Statement st = pcDB.connection2().createStatement();
             ResultSet rs = st.executeQuery(SQL);

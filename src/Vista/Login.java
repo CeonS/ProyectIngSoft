@@ -20,6 +20,7 @@ public class Login extends javax.swing.JFrame {
         jlblOcultar.setVisible(false);
 
     }
+    public static boolean colaboradorForm = false, empleadoForm = false;
     DBLogin l = new DBLogin();
     probarConexionDB pcDB = new probarConexionDB();
     DBRellenarFormulariosPerfil RFP = new DBRellenarFormulariosPerfil();
@@ -28,25 +29,30 @@ public class Login extends javax.swing.JFrame {
     public void determinarTipoUsuario(String usu, String pass) {
         DBUsuario u = new DBUsuario();
         DBCliente c = new DBCliente();
-        u.resultadoT = 0;
-        if (l.bandValidarUsuario == true) {
+        DBUsuario.resultadoT = 0;
+        if (DBLogin.bandValidarUsuario == true) {
             u.TipoUsuario(pcDB.connection2(), usu);
-            if (u.resultadoT == 2) {
-                FormEmpleado fe = new FormEmpleado();
-                fe.setVisible(true);
-                this.dispose();
-            } else if (u.resultadoT == 3) {
-                idCliente = c.AsignarIDCliente(pcDB.connection2(), usu);
-                FormCliente fc = new FormCliente(); // no s[e porque no funciona
-                fc.setVisible(true);
-                this.dispose();   
-            } else if (u.resultadoT == 4) {
-
-                FormColaborador fcola = new FormColaborador();
-                fcola.setVisible(true);
-                this.dispose();
-    
-
+            switch (DBUsuario.resultadoT) {
+                case 2:
+                    empleadoForm = true;
+                    FormEmpleado fe = new FormEmpleado();
+                    fe.setVisible(true);
+                    this.dispose();
+                    break;
+                case 3:
+                    idCliente = c.AsignarIDCliente(pcDB.connection2(), usu);
+                    FormCliente fc = new FormCliente(); // no s[e porque no funciona
+                    fc.setVisible(true);
+                    this.dispose();
+                    break;
+                case 4:
+                    colaboradorForm = true;
+                    FormColaborador fcola = new FormColaborador();
+                    fcola.setVisible(true);
+                    this.dispose();
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -233,9 +239,9 @@ public class Login extends javax.swing.JFrame {
 
         } else {
             l.ValidarUsuario(pcDB.connection2(), usu, pass);
-            if (l.bandValidarUsuario == true) {
+            if (DBLogin.bandValidarUsuario == true) {
                 p.ValidarPersona(pcDB.connection2(), usu, pass);
-                if (p.bandValidaPersona == false) {
+                if (DBPersona.bandValidaPersona == false) {
                     de.setVisible(true);
                     this.dispose();
 
@@ -243,7 +249,7 @@ public class Login extends javax.swing.JFrame {
 
                     DBUsuario usuario = new DBUsuario();
                     usuario.TipoUsuario(pcDB.connection2(), usu);
-                    if (usuario.resultadoT != 4) {
+                    if (DBUsuario.resultadoT != 4) {
                         personaPerfil = RFP.AsignarPerfil(pcDB.connection2(), usu);
                         determinarTipoUsuario(usu, pass);
 
@@ -269,20 +275,21 @@ public class Login extends javax.swing.JFrame {
 
         } else {
             l.ValidarUsuario(pcDB.connection2(), usu, pass);
-            if (l.bandValidarUsuario == true) {
+            if (DBLogin.bandValidarUsuario == true) {
                 p.ValidarPersona(pcDB.connection2(), usu, pass);
-                if (p.bandValidaPersona == false) {
+                if (DBPersona.bandValidaPersona == false) {
                     dc.setVisible(true);
                     this.dispose();
                 } else {
                     DBUsuario usuario = new DBUsuario();
 
                     usuario.TipoUsuario(pcDB.connection2(), usu);
-                    if (usuario.resultadoT == 4) {
+                    if (DBUsuario.resultadoT == 4) {
+                        colaboradorForm = true;
                         personaPerfil = RFP.AsignarPerfil(pcDB.connection2(), usu);
                         determinarTipoUsuario(usu, pass);
 
-                    } else if (usuario.resultadoT != 2) {
+                    } else if (DBUsuario.resultadoT != 2) {
                         JOptionPane.showMessageDialog(null, "Inicie sesión como Cliente!");
                     } else {
                         JOptionPane.showMessageDialog(null, "Inicie sesión como Empleado!");

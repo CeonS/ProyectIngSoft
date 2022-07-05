@@ -196,7 +196,7 @@ public class ListadoVisitasTecnicas extends javax.swing.JFrame {
         for (int i = fila - 1; i >= 0; i--) {
             modelo.removeRow(i);
         }
-        
+
         String sql = "select * from visitastecnicas";
 
         String datos[] = new String[4];
@@ -217,16 +217,16 @@ public class ListadoVisitasTecnicas extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error listar: " + e);
         }
-        
+
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        FormEmpleado fe = new FormEmpleado();
-        FormColaborador fc = new FormColaborador();
-        if (fc.colaboradorForm == true) {
+        if (Login.colaboradorForm == true) {
+            FormColaborador fc = new FormColaborador();
             fc.setVisible(true);
             this.dispose();
         } else {
+            FormEmpleado fe = new FormEmpleado();
             fe.setVisible(true);
             this.dispose();
         }

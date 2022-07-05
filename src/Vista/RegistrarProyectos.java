@@ -425,7 +425,7 @@ public class RegistrarProyectos extends javax.swing.JFrame {
                 t.connect(correoRemitente, passwordRemitente);
                 t.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
                 t.close();
-                JOptionPane.showMessageDialog(null, "Se le envío un correo al Cliente asociado a la reunión");
+                JOptionPane.showMessageDialog(null, "Se le envío un correo al Cliente asociado al proyecto!");
 
             } catch (AddressException ex) {
                 java.util.logging.Logger.getLogger(RegistrarReuniones.class.getName()).log(Level.SEVERE, null, ex);

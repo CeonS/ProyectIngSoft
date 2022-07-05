@@ -3,6 +3,8 @@ package Controlador;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class DBProyecto {
@@ -20,7 +22,7 @@ public class DBProyecto {
 
             pst.setInt(1, idReunion);
             pst.setInt(2, idParametro);
-            pst.setDate(3,fechaInicial );
+            pst.setDate(3, fechaInicial);
             pst.setDate(4, fechaFinal);
             pst.setString(5, zonaEjecucion);
             pst.setString(6, "Pendiente");
@@ -35,6 +37,45 @@ public class DBProyecto {
 
             JOptionPane.showMessageDialog(null, "Error de Registro " + e.getMessage());
 
+        }
+    }
+
+    public static boolean Presupuesto = false;
+
+    public void ValidarPresupuesto(Connection con, int idCliente) {
+        Presupuesto = false;
+        String sql = "select s.monto from proyecto p inner join reunion r on p.id_Reunion_Proy = r.idReunion \n"
+                + "                    inner join servicio s on r.IdServicioReunion = s.IdServicio\n"
+                + "                    inner join detallecolaborador dc on p.idProyecto = dc.id_Proyecto_DetalleColaboradores where dc.estadoDetalleColaborador = 'Aceptado' \n"
+                + "                    and r.idClienteReu = " + idCliente;
+        int resultado = 0;
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                resultado = 1;
+
+                if (resultado == 1) {
+                    Presupuesto = true;
+                }
+            }
+        } catch (Exception e) {
+        }
+
+    }
+
+    public void ActualizarEstadoProyecto(Connection con, String estado, int idProyecto) {
+
+        String sqlEstado = "UPDATE proyecto SET estado_proyecto = '" + estado + "' where idProyecto = " + idProyecto;
+
+        try {
+
+            PreparedStatement pps1 = con.prepareStatement(sqlEstado);
+            pps1.executeUpdate();
+            pps1.close();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error de actualizacion " + e);
         }
     }
 

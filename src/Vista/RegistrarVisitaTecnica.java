@@ -36,7 +36,7 @@ public class RegistrarVisitaTecnica extends javax.swing.JFrame {
     void mostrarTabla() {
         proyecto = txtProyecto.getText();
         String sql = "select p.*, np.descripcionParametro from proyecto p inner join nivelparametro"
-                + " np on p.id_Parametro_Sector_Proy = np.idParametro where p.idProyecto = " + proyecto+" and p.estado_proyecto = 'Aceptado'";
+                + " np on p.id_Parametro_Sector_Proy = np.idParametro where p.idProyecto = " + proyecto+" and p.estado_proyecto = 'Activo'";
 
         String datos[] = new String[8];
         Statement st;

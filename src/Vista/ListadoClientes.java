@@ -6,6 +6,7 @@ import javax.swing.table.DefaultTableModel;
 import Modelo.probarConexionDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class ListadoClientes extends javax.swing.JFrame {
@@ -324,18 +325,18 @@ public class ListadoClientes extends javax.swing.JFrame {
                     modelo.addRow(datos);
                 }
                 tablaClientes.setModel(modelo);
-            } catch (Exception e) {
+            } catch (SQLException e) {
             }
         }
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        FormEmpleado fe = new FormEmpleado();
-        FormColaborador fc = new FormColaborador();
-        if (fc.colaboradorForm == true) {
+       if (Login.colaboradorForm == true) {
+            FormColaborador fc = new FormColaborador();
             fc.setVisible(true);
             this.dispose();
         } else {
+            FormEmpleado fe = new FormEmpleado();
             fe.setVisible(true);
             this.dispose();
         }

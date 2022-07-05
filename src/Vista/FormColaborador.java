@@ -9,16 +9,16 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class FormColaborador extends javax.swing.JFrame {
+public final class FormColaborador extends javax.swing.JFrame {
 
     public FormColaborador() {
         initComponents();
         this.setLocationRelativeTo(null);
         panelProyectosTabla.setVisible(false);
-        if(FormEmpleado.control != 1){
+        if (FormEmpleado.control != 1) {
             aceptarDetalle();
+            RellenarPerfil();
         }
-        
 
     }
     DBDetalleColaborador dc = new DBDetalleColaborador();
@@ -30,9 +30,9 @@ public class FormColaborador extends javax.swing.JFrame {
 
     public void aceptarDetalle() {
 
-        idColaborador = c.hallarIDColaboradorIdPersona(pcDB.connection2(), l.personaPerfil);
+        idColaborador = c.hallarIDColaboradorIdPersona(pcDB.connection2(), Login.personaPerfil);
         dc.ValidarAceptacionDetalleColaborador(pcDB.connection2(), idColaborador);
-        if (dc.aceptarDetalle == true) {
+        if (DBDetalleColaborador.aceptarDetalle == true) {
 
             JOptionPane.showMessageDialog(null, "Tiene un proyecto por confirmar! Dirijase al apartado de proyectos!");
 
@@ -51,7 +51,7 @@ public class FormColaborador extends javax.swing.JFrame {
                     + " p.observacionesProy, p.estado_proyecto from proyecto p \n"
                     + "inner join nivelparametro np on p.id_Parametro_Sector_Proy = np.idParametro "
                     + "inner join detallecolaborador dc on p.idProyecto = dc.id_Proyecto_DetalleColaboradores where dc.estadoDetalleColaborador = 'Pendiente'"
-                    + " and dc.id_ColaboradorDetalle = "+idColaborador;
+                    + " and dc.id_ColaboradorDetalle = " + idColaborador;
 
             String datos[] = new String[8];
             Statement st;
@@ -79,7 +79,6 @@ public class FormColaborador extends javax.swing.JFrame {
         }
     }
 
-    public static boolean colaboradorForm = false;
     String datos[] = new String[9];
     probarConexionDB pcDB = new probarConexionDB();
 
@@ -225,6 +224,21 @@ public class FormColaborador extends javax.swing.JFrame {
         jTabbedPane1.addTab("Inicio", jPanel3);
 
         jPanel4.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel4MouseMoved(evt);
+            }
+        });
+        jPanel4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel4FocusGained(evt);
+            }
+        });
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Background.png"))); // NOI18N
@@ -460,25 +474,25 @@ public class FormColaborador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        RellenarPerfil();
+
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void btnvisualizarclientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvisualizarclientesActionPerformed
-        colaboradorForm = true;
+        Login.colaboradorForm = true;
         ListadoClientes lc = new ListadoClientes();
         lc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnvisualizarclientesActionPerformed
 
     private void btnvisualizarvisitatecnicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvisualizarvisitatecnicaActionPerformed
-        colaboradorForm = true;
+        Login.colaboradorForm = true;
         ListadoVisitasTecnicas lvt = new ListadoVisitasTecnicas();
         lvt.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnvisualizarvisitatecnicaActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
-        colaboradorForm = false;
+        Login.colaboradorForm = true;
         Login l = new Login();
         l.setVisible(true);
         this.dispose();
@@ -494,7 +508,7 @@ public class FormColaborador extends javax.swing.JFrame {
         if (opcion == 0) {
 
             String estado = "Inactivo";
-            idColaborador = c.hallarIDColaboradorIdPersona(pcDB.connection2(), l.personaPerfil);
+            idColaborador = c.hallarIDColaboradorIdPersona(pcDB.connection2(), Login.personaPerfil);
             dc.ActualizarEstadoDetalleColaborador(pcDB.connection2(), estado, idColaborador);
             panelProyectosTabla.setVisible(false);
             btnvisualizarproyecto.setVisible(true);
@@ -508,13 +522,25 @@ public class FormColaborador extends javax.swing.JFrame {
         if (opcion == 0) {
 
             String estado = "Aceptado";
-            idColaborador = c.hallarIDColaboradorIdPersona(pcDB.connection2(), l.personaPerfil);
+            idColaborador = c.hallarIDColaboradorIdPersona(pcDB.connection2(), Login.personaPerfil);
             dc.ActualizarEstadoDetalleColaborador(pcDB.connection2(), estado, idColaborador);
             panelProyectosTabla.setVisible(false);
             btnvisualizarproyecto.setVisible(true);
 
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+
+    }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void jPanel4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel4FocusGained
+
+    }//GEN-LAST:event_jPanel4FocusGained
+
+    private void jPanel4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseMoved
+
+    }//GEN-LAST:event_jPanel4MouseMoved
 
     /**
      * @param args the command line arguments

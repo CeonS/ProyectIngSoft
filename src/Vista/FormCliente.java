@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.DBProyecto;
 import Controlador.DBReunion;
 import Modelo.probarConexionDB;
 import java.sql.Connection;
@@ -8,14 +9,16 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class FormCliente extends javax.swing.JFrame {
+public final class FormCliente extends javax.swing.JFrame {
 
     public FormCliente() {
         initComponents();
         this.setLocationRelativeTo(null);
         panelReunionesTabla.setVisible(false);
         jlblNohayReu.setVisible(false);
-        if (FormEmpleado.control != 1) {
+        jlblNohayProy.setVisible(false);
+        panelReunionesTabla1.setVisible(false);
+        if (FormEmpleado.control != 23) {
             AceptarReunion();
             AceptarPresupuesto();
         }
@@ -25,12 +28,13 @@ public class FormCliente extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     probarConexionDB pcDB = new probarConexionDB();
     Login l = new Login();
-    public static int idReunion;
+    public static int idReunion, idProyecto;
     DBReunion r = new DBReunion();
+    DBProyecto p = new DBProyecto();
 
     public void AceptarReunion() {
-        r.ValidarAceptacionReunion(pcDB.connection2());
-        if (r.aceptarReunion == true) {
+        r.ValidarAceptacionReunion(pcDB.connection2(), Login.idCliente);
+        if (DBReunion.aceptarReunion == true) {
             JOptionPane.showMessageDialog(null, "Tiene una reunión por confirmar! Dirijase al apartado de reuniones!");
             panelReunionesTabla.setVisible(true);
             jlblNohayReu.setVisible(false);
@@ -55,7 +59,7 @@ public class FormCliente extends javax.swing.JFrame {
                     + "inner join usuario u on r.id_Usuario_Reu = u.idUsuario\n"
                     + "inner join persona pe on u.idPersonaUsuario = pe.idPersona\n"
                     + "inner join cliente c on r.idClienteReu = c.idCliente\n"
-                    + "inner join persona p on c.id_PersonaC = p.idPersona where c.idCliente = " + l.idCliente + " and r.estado_reunion = 'Pendiente'";
+                    + "inner join persona p on c.id_PersonaC = p.idPersona where c.idCliente = " + Login.idCliente + " and r.estado_reunion = 'Pendiente'";
 
             String datos[] = new String[10];
             Statement st;
@@ -87,15 +91,17 @@ public class FormCliente extends javax.swing.JFrame {
     }
 
     public void AceptarPresupuesto() {
-        r.ValidarAceptacionReunion(pcDB.connection2());
-        if (r.aceptarReunion == true) {
+        p.ValidarPresupuesto(pcDB.connection2(), Login.idCliente);
+        if (DBProyecto.Presupuesto == true) {
             JOptionPane.showMessageDialog(null, "Tiene un presupuesto por confirmar! Dirijase al apartado de proyectos!");
             jlblPresupuesto.setVisible(true);
+            panelReunionesTabla1.setVisible(true);
             jlblNohayProy.setVisible(false);
 
-            String sql = "select s.monto from proyecto p inner join reunion r on p.id_Reunion_Proy = r.idReunion"
-                    + "inner join servicio s on r.IdServicioReunion = s.IdServicio where p.estado_proyecto = 'Aceptado' "
-                    + "and r.idClienteReu = " + l.idCliente;
+            String sql = "select s.monto, p.idProyecto from proyecto p inner join reunion r on p.id_Reunion_Proy = r.idReunion \n"
+                    + "                    inner join servicio s on r.IdServicioReunion = s.IdServicio\n"
+                    + "                    inner join detallecolaborador dc on p.idProyecto = dc.id_Proyecto_Detallecolaboradores where dc.estadoDetalleColaborador = 'Aceptado' \n"
+                    + "                    and r.idClienteReu = " + Login.idCliente;
 
             String dato = "";
             Statement st;
@@ -104,8 +110,10 @@ public class FormCliente extends javax.swing.JFrame {
                 ResultSet rs = st.executeQuery(sql);
                 if (rs.next()) {
                     dato = rs.getString(1);
+                    idProyecto = rs.getInt(2);
                 }
 
+                jlblPresupuesto.setText("Presupuesto: " + dato);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "error listar: " + e);
             }
@@ -405,7 +413,7 @@ public class FormCliente extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(panelReunionesTablaLayout.createSequentialGroup()
                         .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 435, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 359, Short.MAX_VALUE)
                         .addComponent(btnRechazar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -435,18 +443,18 @@ public class FormCliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jlblNohayReu, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(45, 45, 45)
                         .addComponent(panelReunionesTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jlblNohayReu, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(34, 34, 34)
                 .addComponent(panelReunionesTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelReunionesLayout = new javax.swing.GroupLayout(panelReuniones);
@@ -762,11 +770,31 @@ public class FormCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaReunionesMouseClicked
 
     private void btnRechazar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechazar1ActionPerformed
-        // TODO add your handling code here:
+        DBProyecto p = new DBProyecto();
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea rechazar el presupuesto?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (opcion == 0) {
+
+            String estado = "Inactivo";
+            p.ActualizarEstadoProyecto(pcDB.connection2(), estado, idProyecto);
+            panelReunionesTabla1.setVisible(false);
+            jlblNohayReu.setVisible(true);
+
+        }
     }//GEN-LAST:event_btnRechazar1ActionPerformed
 
     private void btnAceptar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptar1ActionPerformed
-        // TODO add your handling code here:
+
+        DBProyecto p = new DBProyecto();
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea aceptar el presupuesto?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (opcion == 0) {
+
+            String estado = "Activo";
+            p.ActualizarEstadoProyecto(pcDB.connection2(), estado, idProyecto);
+            panelReunionesTabla1.setVisible(false);
+            jlblNohayReu.setVisible(true);
+
+        }
+
     }//GEN-LAST:event_btnAceptar1ActionPerformed
 
     /**

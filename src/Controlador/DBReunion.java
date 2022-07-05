@@ -41,7 +41,7 @@ public class DBReunion {
 
     public void ActualizarEstadoReunion(Connection con, String estado, int idReunion) {
 
-        String sqlEstado = "UPDATE reunion SET estado_reunion = '" + estado + "' where idReunion = "+idReunion;
+        String sqlEstado = "UPDATE reunion SET estado_reunion = '" + estado + "' where idReunion = " + idReunion;
 
         try {
 
@@ -55,22 +55,24 @@ public class DBReunion {
     }
 
     public static boolean aceptarReunion = false;
-    public void ValidarAceptacionReunion(Connection con) {
 
-        String sql = "select * from reunion where estado_reunion = 'Pendiente'";
+    public void ValidarAceptacionReunion(Connection con, int idCliente) {
+        aceptarReunion = false;
+        String sql = "select * from reunion r inner join cliente c on r.idClienteReu = c.idCliente where estado_reunion = 'Pendiente' and c.idCliente = "+idCliente;
         int resultado = 0;
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            if(rs.next()){
+            if (rs.next()) {
                 resultado = 1;
-                
-                if(resultado ==1){
+
+                if (resultado == 1) {
                     aceptarReunion = true;
                 }
             }
         } catch (Exception e) {
         }
 
-    }
+    }  
+   
 }

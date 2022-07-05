@@ -336,12 +336,12 @@ public class ListadoReuniones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        FormEmpleado fe = new FormEmpleado();
-        FormColaborador fc = new FormColaborador();
-        if (fc.colaboradorForm == true) {
+        if (Login.colaboradorForm == true) {
+            FormColaborador fc = new FormColaborador();
             fc.setVisible(true);
             this.dispose();
         } else {
+            FormEmpleado fe = new FormEmpleado();
             fe.setVisible(true);
             this.dispose();
         }
